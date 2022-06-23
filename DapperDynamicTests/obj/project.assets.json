@@ -4718,34 +4718,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JJK\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamicTests\\DapperDynamicTests.csproj",
+      "projectUniqueName": "C:\\Users\\User\\RiderProjects\\PorgramSaldo-TheWayOfDapper\\DapperDynamicTests\\DapperDynamicTests.csproj",
       "projectName": "DapperDynamicTests",
-      "projectPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamicTests\\DapperDynamicTests.csproj",
-      "packagesPath": "C:\\Users\\JJK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamicTests\\obj\\",
+      "projectPath": "C:\\Users\\User\\RiderProjects\\PorgramSaldo-TheWayOfDapper\\DapperDynamicTests\\DapperDynamicTests.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\RiderProjects\\PorgramSaldo-TheWayOfDapper\\DapperDynamicTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JJK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj": {
-              "projectPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj"
+            "C:\\Users\\User\\RiderProjects\\PorgramSaldo-TheWayOfDapper\\DapperDynamic\\DapperDynamic.csproj": {
+              "projectPath": "C:\\Users\\User\\RiderProjects\\PorgramSaldo-TheWayOfDapper\\DapperDynamic\\DapperDynamic.csproj"
             }
           }
         }
@@ -4787,12 +4785,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.3, 6.0.3]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.3, 6.0.3]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.3, 6.0.3]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.3.22179.4\\RuntimeIdentifierGraph.json"
       }
     }
   }

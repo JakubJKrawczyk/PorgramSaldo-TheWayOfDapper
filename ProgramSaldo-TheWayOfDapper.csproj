@@ -8,4 +8,28 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DapperDynamic\**" />
+    <Compile Remove="DapperDynamicTests\**" />
+    <Compile Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="DapperDynamic\**" />
+    <EmbeddedResource Remove="DapperDynamicTests\**" />
+    <EmbeddedResource Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DapperDynamic\**" />
+    <None Remove="DapperDynamicTests\**" />
+    <None Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="DapperDynamic\**" />
+    <Page Remove="DapperDynamicTests\**" />
+    <Page Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
 </Project>
