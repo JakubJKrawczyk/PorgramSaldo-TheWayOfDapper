@@ -32,4 +32,8 @@
     <Page Remove="ProgramSaldoTests\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="DapperDynamic\DapperDynamic.csproj" />
+  </ItemGroup>
+
 </Project>

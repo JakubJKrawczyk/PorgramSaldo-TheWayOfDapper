@@ -52,4 +52,14 @@ public class DatabaseManager
         }
         return result == 1;
     }
+
+    public bool CreateColumn(string tablename, string colname, Type type, string color)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool DeleteColumn(string tablename, string colname)
+    {
+        throw new NotImplementedException();
+    }
 }
