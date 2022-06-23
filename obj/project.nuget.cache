@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XfurawLbyFPOCgMFLF2gqgbe9ko+5Eg4Wg08OI3FtlOVzC1AxpeirXET1E72WzFmmRu7DXTpWRvL+NqTf0N8Fg==",
+  "dgSpecHash": "63Cd0uFM1A3n2MFHwm04L0ij0h1HzHGVggne3+GacO6v0bEgxb6rOpfE1QB3wOrQYA55/y7D03I07bFkH+2Anw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\ProgramSaldo-TheWayOfDapper.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\JJK\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512"
+  ],
   "logs": []
 }

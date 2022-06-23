@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\ProgramSaldo-TheWayOfDapper.csproj": {}
+    "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\ProgramSaldo-TheWayOfDapper.csproj": {
+    "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\ProgramSaldo-TheWayOfDapper.csproj",
-        "projectName": "ProgramSaldo-TheWayOfDapper",
-        "projectPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\ProgramSaldo-TheWayOfDapper.csproj",
+        "projectUniqueName": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj",
+        "projectName": "DapperDynamic",
+        "projectPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\DapperDynamic.csproj",
         "packagesPath": "C:\\Users\\JJK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo-TheWayOfDapper\\obj\\",
+        "outputPath": "C:\\Users\\JJK\\Desktop\\ProgramSaldo\\DapperDynamic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JJK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -37,12 +37,16 @@
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Dapper": {
               "target": "Package",
               "version": "[2.0.123, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.29, )"
             }
           },
           "imports": [
@@ -58,9 +62,6 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WPF": {
-              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
