@@ -10,7 +10,7 @@ public class TableTests
     [SetUp]
     public void Setup()
     {
-        DatabaseManager.Initialize("root", "", "dapperdynami");
+        DatabaseManager.Initialize("root", "", "dapperdynamic");
         _db = DatabaseManager.Instance!;
     }
 
@@ -26,10 +26,11 @@ public class TableTests
     [Test]
     public void ColumnTest()
     {
-        _db.CreateTable("testcolumn");
-        bool create = _db.CreateColumn("testcolumn", "column1", typeof(double), "#00FF00");
+        _db.CreateTable("testcolumn", true);
+        bool create = _db.CreateColumn("testcolumn", "column1", typeof(double), "00FF00");
         Assert.IsTrue(create);
         bool drop = _db.DeleteColumn("testcolumn", "column1");
+        _db.DeleteTable("testcolumn");
         Assert.IsTrue(drop);
     }
 }
