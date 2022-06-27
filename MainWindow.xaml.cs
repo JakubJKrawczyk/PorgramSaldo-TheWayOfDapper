@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramSaldo_TheWayOfDapper.Okna_Główne;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,11 @@ namespace ProgramSaldo_TheWayOfDapper
     {
         public MainWindow()
         {
+
             InitializeComponent();
+            Login w = new Login();
+            w.Show();
+
         }
     }
 }

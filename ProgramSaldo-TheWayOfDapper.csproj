@@ -8,4 +8,25 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DapperDynamicTests\**" />
+    <Compile Remove="DapperDynamic\**" />
+    <EmbeddedResource Remove="DapperDynamicTests\**" />
+    <EmbeddedResource Remove="DapperDynamic\**" />
+    <None Remove="DapperDynamicTests\**" />
+    <None Remove="DapperDynamic\**" />
+    <Page Remove="DapperDynamicTests\**" />
+    <Page Remove="DapperDynamic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="MySql.Data" Version="8.0.29" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Okna Dodatkszowe\" />
+  </ItemGroup>
+
 </Project>
