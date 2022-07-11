@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProgramSaldo_TheWayOfDapper.Controller;
+using ProgramSaldo_TheWayOfDapper.Okna_Główne;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,19 @@ namespace ProgramSaldo_TheWayOfDapper
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool IsSideMenuOpen ; 
+        private MainWindowController _controller; 
         public MainWindow()
         {
+            IsSideMenuOpen = false;
             InitializeComponent();
+            _controller = new MainWindowController();
+
+            
         }
+
+
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) => _controller.Rectangle_MouseDown(this, sender, e);
     }
 }
