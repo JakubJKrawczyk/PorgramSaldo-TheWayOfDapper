@@ -22,19 +22,30 @@ namespace ProgramSaldo_TheWayOfDapper
     /// </summary>
     public partial class MainWindow : Window
     {
-        public bool IsSideMenuOpen ; 
+        public bool IsSideMenuOpen ;
+        public static bool IsLogged { get; set; } = false;
         private MainWindowController _controller; 
         public MainWindow()
         {
             IsSideMenuOpen = false;
             InitializeComponent();
             _controller = new MainWindowController();
+            if (!IsLogged)
+            {
+            Login w = new Login();
+            w.Show();
+            this.Hide();
 
-            
+            }
         }
 
-
+        
 
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) => _controller.Rectangle_MouseDown(this, sender, e);
+
+        private void MWindow_Closed(object sender, EventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

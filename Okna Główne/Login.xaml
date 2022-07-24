@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramSaldo_TheWayOfDapper"
         mc:Ignorable="d"
-        Title="Login" Height="600" Width="600" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SnapsToDevicePixels="True" Topmost="True" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="600" Width="600" WindowStyle="SingleBorderWindow" ResizeMode="NoResize" SnapsToDevicePixels="True" Topmost="True" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Window.Resources>
 
         <Style x:Key="ButtonLogin" TargetType="Button">
@@ -50,14 +50,15 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition Height="40" Name="LoginErrorRow"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Panel.ZIndex="-1" Grid.Row="0" BorderThickness="2,0,2,0" BorderBrush="Black" ClipToBounds="True" Opacity="0.5"></Label>
                 <Label Panel.ZIndex="-1" Grid.Row="1" BorderThickness="2,0,2,0" BorderBrush="Black" ClipToBounds="True" Opacity="0.5"></Label>
                 <Label Panel.ZIndex="-1" Grid.Row="2" BorderThickness="2,0,2,2" BorderBrush="Black" ClipToBounds="True" Opacity="0.5"></Label>
-                <TextBox Grid.Row="0" Height="50" MinWidth="250" MaxWidth="300" Margin="0 0 0 -30" Text="Login" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Gill Sans MT" FontWeight="Regular" AllowDrop="False" Foreground="#FF7D7D7D"></TextBox>
-                <TextBox Grid.Row="1" Height="50" MinWidth="250" MaxWidth="300" Margin="0 -30 0 0" Text="Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Gill Sans MT" FontWeight="Thin" AllowDrop="False" Foreground="#FF7D7D7D"/>
-                <Button x:Name="ButtonLogin" Grid.Row="2" Height="50" Width="200" Content="Zaloguj" Background="#FF87BC5E" Foreground="White" BorderBrush="{x:Null}" FontSize="25" Cursor="Hand"/>
-
+                <TextBox Name="TextBoxLogin" Grid.Row="0" Height="50" MinWidth="250" MaxWidth="300" Margin="0 0 0 -30" Text="Login" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Gill Sans MT" FontWeight="Regular" AllowDrop="False" Foreground="#FF7D7D7D"></TextBox>
+                <TextBox Name="TextBoxPassword" Grid.Row="1" Height="50" MinWidth="250" MaxWidth="300" Margin="0 -30 0 0" Text="Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Gill Sans MT" FontWeight="Thin" AllowDrop="False" Foreground="#FF7D7D7D"/>
+                <Button x:Name="ButtonLogin" Grid.Row="2" Height="50" Width="200" Content="Zaloguj" Background="#FF87BC5E" Foreground="White" BorderBrush="{x:Null}" FontSize="25" Cursor="Hand" Click="LoginIn"/>
+                <TextBlock Name="LoginErrorTextBlock" Grid.Row="3" Foreground="Red"></TextBlock>
             </Grid>
         </Grid>
     </Grid>

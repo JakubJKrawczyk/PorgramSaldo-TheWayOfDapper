@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Dapper;
 using MySql.Data.MySqlClient;
 
@@ -8,10 +9,11 @@ public class DatabaseManager
 {
     private static DatabaseManager? _instance;
     private MySqlConnection _connection;
-    
+    public string DataBaseName { get; set; }
     private DatabaseManager(string host, string port, string user, string password, string database)
     {
         _connection = new MySqlConnection($"server={host};port={port};user={user};password={password};database={database}");
+        DataBaseName = database;
     }
     
     public static DatabaseManager? Instance => _instance;
@@ -46,7 +48,9 @@ public class DatabaseManager
             _connection.Close();
         }
     }
+
     
+
     public static void Initialize(string user="root", string password="", string database="example", string host="localhost", string port="3306")
     {
         _instance = new DatabaseManager(host, port, user, password, database);
@@ -57,7 +61,7 @@ public class DatabaseManager
         if(name.Length > 64) throw new ArgumentException("Table name cannot be longer than 64 characters");
         Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
         if(!regex.IsMatch(name)) throw new ArgumentException("Table name cannot contain special characters");
-        if (_isTableExists(name)) DeleteTable(name);
+        if (_isTableExists(name, _connection.Database)) DeleteTable(name);
         return HandleInTransaction(() =>
         {
             int result = _connection.Execute("INSERT INTO `usertables` (`tablename`) VALUES (@name)", new { name });
@@ -80,15 +84,15 @@ public class DatabaseManager
         });
     }
 
-    private bool _isTableExists(string name)
+    public bool _isTableExists(string name, string schema)
     {
-        return _connection.Query("SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = @name", new { name })
+        return _connection.Query("SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = @name AND TABLE_SCHEMA = @schema", new { name, schema })
             .FirstOrDefault() is not null;
     }
 
-    public bool CreateColumn(string tablename, string colname, Type type, string color)
+    public bool CreateColumn(string tablename, string colname, Type type, string color = "#000000")
     {
-        if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
+        if(!_isTableExists(tablename, _connection.Database)) throw new ArgumentException("Table does not exist");
         if(colname.Length > 64) throw new ArgumentException("Column name cannot be longer than 64 characters");
         Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
         if(!regex.IsMatch(colname)) throw new ArgumentException("Column name cannot contain special characters");
@@ -142,7 +146,7 @@ public class DatabaseManager
 
     public bool DeleteColumn(string tablename, string colname)
     {
-        if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
+        if(!_isTableExists(tablename, _connection.Database)) throw new ArgumentException("Table does not exist");
         if(colname.Length > 64) throw new ArgumentException("Column name cannot be longer than 64 characters");
         Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
         if(!regex.IsMatch(colname)) throw new ArgumentException("Column name cannot contain special characters");
@@ -156,4 +160,39 @@ public class DatabaseManager
             return result == 1;
         });
     }
+
+    public void CreateUsersTable()
+    {
+        CreateTable("users");
+        // users columns section
+        CreateColumn("users", "login", typeof(string));
+        CreateColumn("users", "passwd", typeof(string));
+        CreateColumn("users", "firstName", typeof(string));
+        CreateColumn("users", "lastName", typeof(string));
+        CreateColumn("users", "priviliges", typeof(string));
+        CreateColumn("users", "accountType", typeof(string));
+
+
+    }
+
+
+    public bool ProcessLogin(string login, string password)
+    {
+        return HandleInTransaction(() =>
+        {
+            var user = _connection.QueryAsync($"SELECT login,passwd FROM users where login = '{login}'").Result.FirstOrDefault();
+            if(user != null)
+            {
+                
+                if (user.passwd == password) return true;
+                else return false;
+            }
+            else
+            {
+                return false;
+            }
+        });
+    }
+
+
 }

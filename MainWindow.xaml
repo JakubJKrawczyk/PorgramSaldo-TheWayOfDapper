@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramSaldo_TheWayOfDapper"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="1000" MinWidth="1000" ResizeMode="CanResize" Name="MWindow">
+        Title="MainWindow" MinHeight="1000" MinWidth="1000" ResizeMode="CanResize" Name="MWindow" Closed="MWindow_Closed">
     <!--Main Container-->
     <Grid>
         <Grid.RowDefinitions>
