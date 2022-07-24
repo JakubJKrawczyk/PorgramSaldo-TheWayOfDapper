@@ -9,24 +9,31 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DapperDynamicTests\**" />
     <Compile Remove="DapperDynamic\**" />
-    <EmbeddedResource Remove="DapperDynamicTests\**" />
+    <Compile Remove="DapperDynamicTests\**" />
+    <Compile Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Remove="DapperDynamic\**" />
-    <None Remove="DapperDynamicTests\**" />
+    <EmbeddedResource Remove="DapperDynamicTests\**" />
+    <EmbeddedResource Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="DapperDynamic\**" />
-    <Page Remove="DapperDynamicTests\**" />
+    <None Remove="DapperDynamicTests\**" />
+    <None Remove="ProgramSaldoTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Remove="DapperDynamic\**" />
+    <Page Remove="DapperDynamicTests\**" />
+    <Page Remove="ProgramSaldoTests\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="MySql.Data" Version="8.0.29" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Okna Dodatkszowe\" />
+    <ProjectReference Include="DapperDynamic\DapperDynamic.csproj" />
   </ItemGroup>
 
 </Project>
