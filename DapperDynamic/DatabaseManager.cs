@@ -8,6 +8,15 @@ public class DatabaseManager
 {
     private static DatabaseManager? _instance;
     private MySqlConnection _connection;
+    private static Dictionary<Type, Tuple<string, string>> _typeMap = new()
+    {
+        {typeof(bool), new Tuple<string, string>("BOOL", "TINYINT(1)")},
+        {typeof(char), new Tuple<string, string>("CHAR", "CHAR(1)")},
+        {typeof(decimal), new Tuple<string, string>("DECIMAL", "DECIMAL(10,4)")},
+        {typeof(double), new Tuple<string, string>("DOUBLE", "DOUBLE")},
+        {typeof(int), new Tuple<string, string>("INT", "INT")},
+        {typeof(string), new Tuple<string, string>("STRING", "VARCHAR(255)")},
+    };
     
     private DatabaseManager(string host, string port, string user, string password, string database)
     {
@@ -23,10 +32,7 @@ public class DatabaseManager
             {
                 _connection.Open();
             }
-            catch(InvalidOperationException)
-            {
-                // ignored
-            }
+            catch (InvalidOperationException){}
 
         using var transaction = _connection.BeginTransaction();
         try
@@ -52,107 +58,105 @@ public class DatabaseManager
         _instance = new DatabaseManager(host, port, user, password, database);
     }
 
+    private static string _generateRealName(bool column = false)
+    {
+        return column ? $"col_{DateTime.Now.ToFileTime()}" : $"table_{DateTime.Now.ToFileTime()}";
+    }
+
     public bool CreateTable(string name, bool dropIfExists = false)
     {
-        if(name.Length > 64) throw new ArgumentException("Table name cannot be longer than 64 characters");
-        Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
-        if(!regex.IsMatch(name)) throw new ArgumentException("Table name cannot contain special characters");
-        if (_isTableExists(name)) DeleteTable(name);
+        if (_isTableExists(name))
+        {
+            if (!dropIfExists) return false;
+            DeleteTable(name);
+        }
+        string realName = _generateRealName();
         return HandleInTransaction(() =>
         {
-            int result = _connection.Execute("INSERT INTO `usertables` (`tablename`) VALUES (@name)", new { name });
-            _connection.Execute($"CREATE TABLE `{name}` (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)");
+            int result = _connection.Execute(
+                "INSERT INTO `usertables` (`tablerealname`, `tabledisplayname`) VALUES (@realname, @displayname)", 
+                new { displayname = name, realname = realName });
+            _connection.Execute($"CREATE TABLE `{realName}` (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)");
             return result == 1;
         });
     }
     
     public bool DeleteTable(string name)
     {
-        if(name.Length > 64) throw new ArgumentException("Table name cannot be longer than 64 characters");
-        Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
-        if(!regex.IsMatch(name)) throw new ArgumentException("Table name cannot contain special characters");
         return HandleInTransaction(() =>
         {
-            _connection.Execute("DELETE FROM `usertablescolumns` WHERE `tablename` = @name", new { name });
-            int result = _connection.Execute("DELETE FROM `usertables` WHERE `tablename` = @name", new { name });
-            _connection.Execute($"DROP TABLE `{name}`");
+            var realName = _connection.QueryFirstOrDefault(
+                "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @name",
+                new { name });
+            if(realName is null) return false;
+            _connection.Execute(
+                "DELETE FROM `usertablescolumns` WHERE `tablerealname` = @name",
+                new { name = realName.tablerealname });
+            int result = _connection.Execute(
+                "DELETE FROM `usertables` WHERE `tablerealname` = @name",
+                new { name = realName.tablerealname });
+            _connection.Execute($"DROP TABLE {realName.tablerealname}");
             return result == 1;
         });
     }
 
     private bool _isTableExists(string name)
     {
-        return _connection.Query("SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = @name", new { name })
+        var realname = _connection.QueryFirstOrDefault(
+            "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @name",
+            new { name });
+        if(realname is null) return false;
+        return _connection.Query(
+                "SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = @name", 
+                new { name = realname.tablerealname })
             .FirstOrDefault() is not null;
     }
 
     public bool CreateColumn(string tablename, string colname, Type type, string color)
     {
         if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
-        if(colname.Length > 64) throw new ArgumentException("Column name cannot be longer than 64 characters");
-        Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
-        if(!regex.IsMatch(colname)) throw new ArgumentException("Column name cannot contain special characters");
-
         string cstype, sqltype;
-        if (type == typeof(bool))
-        {
-            cstype = "BOOL";
-            sqltype = "TINYINT(1)";
-        }
-        else if (type == typeof(char))
-        {
-            cstype = "CHAR";
-            sqltype = "CHAR(1)";
-        }
-        else if (type == typeof(decimal))
-        {
-            cstype = "DECIMAL";
-            sqltype = "DECIMAL(10,4)";
-        }
-        else if (type == typeof(double))
-        {
-            cstype = "DOUBLE";
-            sqltype = "DOUBLE";
-        }
-        else if (type == typeof(int))
-        {
-            cstype = "INT";
-            sqltype = "INT";
-        }
-        else if (type == typeof(string))
-        {
-            cstype = "STRING";
-            sqltype = "VARCHAR(255)";
-        }
-        else
-        {
-            throw new ArgumentException("Unsupported type");
-        }
+        if(!_typeMap.ContainsKey(type)) throw new ArgumentException("Unsupported type");
+        (cstype, sqltype) = _typeMap[type];
+        string realName = _generateRealName(true);
 
         return HandleInTransaction(() =>
         {
-            int result = _connection.Execute("INSERT INTO `usertablescolumns`" +
-                                             "(`tablename`, `colname`, `csharptype`, `color`)" +
-                                             "VALUES (@tablename, @colname, @cstype, @color)",
-                new { tablename, colname, cstype, color });
-            _connection.Execute($"ALTER TABLE `{tablename}` ADD COLUMN `{colname}` {sqltype}");
+            var tablerealname = _connection.QueryFirstOrDefault(
+                "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename",
+                new { tablename });
+            if(tablerealname is null) throw new ArgumentException("Table does not exist");
+            int result = _connection.Execute(
+                "INSERT INTO `usertablescolumns`" +
+                "(`tablerealname`, `realname`, `displayname`, `csharptype`, `color`)" +
+                 "VALUES (@tablerealname, @realname, @displayname, @cstype, @color)",
+                new { tablerealname.tablerealname,
+                            realname = realName,
+                            displayname = colname,
+                            cstype,
+                            color });
+            _connection.Execute(
+                $"ALTER TABLE `{tablerealname.tablerealname}` ADD COLUMN `{realName}` {sqltype}");
             return result == 1;
         });
     }
 
-    public bool DeleteColumn(string tablename, string colname)
+    public bool DeleteColumn(string tabledisplayname, string colname)
     {
-        if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
-        if(colname.Length > 64) throw new ArgumentException("Column name cannot be longer than 64 characters");
-        Regex regex = new Regex(@"^[a-zA-Z0-9_\-]{1,32}$");
-        if(!regex.IsMatch(colname)) throw new ArgumentException("Column name cannot contain special characters");
+        if(!_isTableExists(tabledisplayname)) throw new ArgumentException("Table does not exist");
 
         return HandleInTransaction(() =>
         {
+            var realnames = _connection.QueryFirstOrDefault(
+                "SELECT ut.tablerealname trn, utc.realname crn" +
+                " FROM `usertables` AS `ut` INNER JOIN `usertablescolumns` AS `utc` ON ut.tablerealname = utc.tablerealname" +
+                " WHERE `tabledisplayname` = @tabledisplayname AND `displayname` = @colname",
+                new { tabledisplayname, colname });
+            if(realnames is null) throw new ArgumentException("Column does not exist");
             int result = _connection.Execute(
-                "DELETE FROM `usertablescolumns` WHERE tablename=@tablename AND colname=@colname",
-                new { tablename, colname});
-            _connection.Execute($"ALTER TABLE `{tablename}` DROP COLUMN `{colname}`");
+                "DELETE FROM `usertablescolumns` WHERE tablerealname=@tablename AND realname=@realname",
+                new { tablename = realnames.trn, realname = realnames.crn});
+            _connection.Execute($"ALTER TABLE `{realnames.trn}` DROP COLUMN `{realnames.crn}`");
             return result == 1;
         });
     }
