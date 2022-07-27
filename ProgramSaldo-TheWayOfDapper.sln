@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDynamic", "DapperDyna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDynamicTests", "DapperDynamicTests\DapperDynamicTests.csproj", "{DBAE6642-18DB-4349-AB95-9716ADF7651D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramSaldoTests", "ProgramSaldoTests\ProgramSaldoTests.csproj", "{9EBE4AA2-0A13-4019-8C6B-E4CD95013489}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{DBAE6642-18DB-4349-AB95-9716ADF7651D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBAE6642-18DB-4349-AB95-9716ADF7651D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBAE6642-18DB-4349-AB95-9716ADF7651D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EBE4AA2-0A13-4019-8C6B-E4CD95013489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EBE4AA2-0A13-4019-8C6B-E4CD95013489}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EBE4AA2-0A13-4019-8C6B-E4CD95013489}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EBE4AA2-0A13-4019-8C6B-E4CD95013489}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
