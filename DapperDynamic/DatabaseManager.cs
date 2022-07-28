@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Dapper;
 using MySql.Data.MySqlClient;
 
@@ -18,9 +19,12 @@ public class DatabaseManager
         {typeof(string), new Tuple<string, string>("STRING", "VARCHAR(255)")},
     };
     
+    public string DataBaseName { get; set; }
+    
     private DatabaseManager(string host, string port, string user, string password, string database)
     {
         _connection = new MySqlConnection($"server={host};port={port};user={user};password={password};database={database}");
+        DataBaseName = database;
     }
     
     public static DatabaseManager? Instance => _instance;
@@ -52,7 +56,9 @@ public class DatabaseManager
             _connection.Close();
         }
     }
+
     
+
     public static void Initialize(string user="root", string password="", string database="example", string host="localhost", string port="3306")
     {
         _instance = new DatabaseManager(host, port, user, password, database);
@@ -100,7 +106,7 @@ public class DatabaseManager
         });
     }
 
-    private bool _isTableExists(string name)
+    internal bool _isTableExists(string name)
     {
         var realname = _connection.QueryFirstOrDefault(
             "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @name",
@@ -112,9 +118,10 @@ public class DatabaseManager
             .FirstOrDefault() is not null;
     }
 
-    public bool CreateColumn(string tablename, string colname, Type type, string color)
+    public bool CreateColumn(string tablename, string colname, Type type, string color = "#000000")
     {
         if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
+        
         string cstype, sqltype;
         if(!_typeMap.ContainsKey(type)) throw new ArgumentException("Unsupported type");
         (cstype, sqltype) = _typeMap[type];
@@ -190,4 +197,37 @@ public class DatabaseManager
             return result == 1;
         });
     }
+    
+    public void CreateUsersTable()
+    {
+        CreateTable("users");
+        // users columns section
+        CreateColumn("users", "login", typeof(string));
+        CreateColumn("users", "passwd", typeof(string));
+        CreateColumn("users", "firstName", typeof(string));
+        CreateColumn("users", "lastName", typeof(string));
+        CreateColumn("users", "priviliges", typeof(string));
+        CreateColumn("users", "accountType", typeof(string));
+    }
+
+
+    public bool ProcessLogin(string login, string password)
+    {
+        return HandleInTransaction(() =>
+        {
+            var user = _connection.QueryAsync($"SELECT login, passwd FROM users where login = '{login}'").Result.FirstOrDefault();
+            if(user != null)
+            {
+                
+                if (user.passwd == password) return true;
+                else return false;
+            }
+            else
+            {
+                return false;
+            }
+        });
+    }
+
+
 }
