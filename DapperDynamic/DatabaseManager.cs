@@ -160,4 +160,34 @@ public class DatabaseManager
             return result == 1;
         });
     }
+
+    public bool Insert(InsertQuery insertQuery)
+    {
+        if(!_isTableExists(insertQuery.TableDisplayName)) throw new ArgumentException("Table does not exist");
+        var tablerealname = _connection.QueryFirstOrDefault(
+            "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename",
+            new { tablename = insertQuery.TableDisplayName });
+        if(tablerealname is null) throw new ArgumentException("Table does not exist");
+        var columns = _connection.Query(
+            "SELECT `realname`, `displayname`, `csharptype` FROM `usertablescolumns` WHERE `tablerealname` = @tablename",
+            new { tablename = tablerealname.tablerealname });
+        if(columns is null) throw new ArgumentException("Table does not exist");
+        var values = new Dictionary<string, object>();
+        foreach(var column in columns)
+        {
+            if(!insertQuery.Parameters.ContainsKey(column.displayname))
+                throw new ArgumentException("Missing value for column");
+            values.Add(column.realname, insertQuery.Parameters[column.displayname]);
+        }
+        string sql = $"INSERT INTO `{tablerealname.tablerealname}` (" +
+            string.Join(", ", values.Keys) +
+            ") VALUES (" +
+            string.Join(", ", values.Keys.Select(k => "@" + k)) +
+            ")";
+        return HandleInTransaction(() =>
+        {
+            int result = _connection.Execute(sql, values);
+            return result == 1;
+        });
+    }
 }
