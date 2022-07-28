@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgramSaldo-TheWayOfDapper
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperDynamic", "DapperDynamic\DapperDynamic.csproj", "{450FB071-4340-454E-8028-93C926DE0A10}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperDynamicTests", "DapperDynamicTests\DapperDynamicTests.csproj", "{DBAE6642-18DB-4349-AB95-9716ADF7651D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDynamicTests", "DapperDynamicTests\DapperDynamicTests.csproj", "{DBAE6642-18DB-4349-AB95-9716ADF7651D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

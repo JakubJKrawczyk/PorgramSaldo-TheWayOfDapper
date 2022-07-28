@@ -33,4 +33,14 @@ public class TableTests
         _db.DeleteTable("testcolumn");
         Assert.IsTrue(drop);
     }
+
+    [Test]
+    public void InsertTest()
+    {
+        _db.CreateTable("testinsert", true);
+        bool create = _db.CreateColumn("testinsert", "column1", typeof(double), "00FF00");
+        Assert.IsTrue(create);
+        InsertQuery insert = new InsertQuery("testinsert").Into("column1", 1.0);
+        Assert.IsTrue(_db.Insert(insert));
+    }
 }
