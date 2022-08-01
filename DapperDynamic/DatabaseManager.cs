@@ -74,7 +74,7 @@ public class DatabaseManager
         if (_isTableExists(name))
         {
             if (!dropIfExists) return false;
-            DeleteTable(name);
+            if (!DeleteTable(name)) throw new Exception("Failed to delete table");
         }
         string realName = _generateRealName();
         return HandleInTransaction(() =>
@@ -104,6 +104,13 @@ public class DatabaseManager
             _connection.Execute($"DROP TABLE {realName.tablerealname}");
             return result == 1;
         });
+    }
+    
+    public bool IsTableExists(string name, string? schema = null)
+    {
+        if(schema is not null)
+            return _connection.Database == schema && _isTableExists(name);
+        return _isTableExists(name);
     }
 
     internal bool _isTableExists(string name)

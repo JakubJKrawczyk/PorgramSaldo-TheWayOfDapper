@@ -43,4 +43,14 @@ public class TableTests
         InsertQuery insert = new InsertQuery("testinsert").Into("column1", 1.0);
         Assert.IsTrue(_db.Insert(insert));
     }
+
+    [Test]
+    public void IsTableExists()
+    {
+        _db.CreateTable("testexists", true);
+        bool exists = _db.IsTableExists("testexists");
+        _db.DeleteTable("testexists");
+        Assert.IsTrue(exists);
+        Assert.IsFalse(_db.IsTableExists("testexists"));
+    }
 }
