@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Dapper;
+using DapperDynamic.structures;
 using MySql.Data.MySqlClient;
 
 namespace DapperDynamic;
@@ -18,13 +21,18 @@ public class DatabaseManager
         {typeof(int), new Tuple<string, string>("INT", "INT")},
         {typeof(string), new Tuple<string, string>("STRING", "VARCHAR(255)")},
     };
-    
-    public string DataBaseName { get; set; }
+    private static Dictionary<string, Type> _reverseTypeMap = new(){
+        {"BOOL", typeof(bool)},
+        {"CHAR", typeof(char)},
+        {"DECIMAL", typeof(decimal)},
+        {"DOUBLE", typeof(double)},
+        {"INT", typeof(int)},
+        {"STRING", typeof(string)},
+    };
     
     private DatabaseManager(string host, string port, string user, string password, string database)
     {
         _connection = new MySqlConnection($"server={host};port={port};user={user};password={password};database={database}");
-        DataBaseName = database;
     }
     
     public static DatabaseManager? Instance => _instance;
@@ -74,7 +82,7 @@ public class DatabaseManager
         if (_isTableExists(name))
         {
             if (!dropIfExists) return false;
-            DeleteTable(name);
+            if (!DeleteTable(name)) throw new Exception("Failed to delete table");
         }
         string realName = _generateRealName();
         return HandleInTransaction(() =>
@@ -104,6 +112,13 @@ public class DatabaseManager
             _connection.Execute($"DROP TABLE {realName.tablerealname}");
             return result == 1;
         });
+    }
+    
+    public bool IsTableExists(string name, string? schema = null)
+    {
+        if(schema is not null)
+            return _connection.Database == schema && _isTableExists(name);
+        return _isTableExists(name);
     }
 
     internal bool _isTableExists(string name)
@@ -197,7 +212,59 @@ public class DatabaseManager
             return result == 1;
         });
     }
+
+    public ICollection<Table> ShowTables()
+    {
+        Dictionary<string, Table> tables = new Dictionary<string, Table>();
+        var mapping = _connection.Query(
+            "SELECT `tabledisplayname` tdn, `displayname` cdn, `color`, `csharptype`" +
+            " FROM `usertables` INNER JOIN usertablescolumns u on usertables.tablerealname = u.tablerealname");
+        foreach (var record in mapping)
+        {
+            if(!tables.ContainsKey(record.tdn))
+                tables.Add(record.tdn, new Table{DisplayName = record.tdn, Columns = new List<Column>()});
+            Table t = tables[record.tdn];
+            t.Columns.Add(new Column
+            {
+                DisplayName = record.cdn,
+                Table = t,
+                Color = Color.FromArgb(int.Parse(record.color.Substring(0, 2), NumberStyles.HexNumber),
+                                      int.Parse(record.color.Substring(2, 2), NumberStyles.HexNumber),
+                                      int.Parse(record.color.Substring(4, 2), NumberStyles.HexNumber)),
+                Type = _reverseTypeMap[record.csharptype]
+            });
+        }
+        return tables.Values;
+    }
     
+    public ICollection<Column> ShowColumns(string tablename)
+    {
+        if(!_isTableExists(tablename)) throw new ArgumentException("Table does not exist");
+        var tablerealname = _connection.QueryFirst(
+            "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename",
+            new { tablename });
+        var mapping = _connection.Query(
+            "SELECT `color`, `displayname`, `csharptype`" +
+            " FROM `usertablescolumns` WHERE `tablerealname` = @tablename",
+            new { tablename = tablerealname.tablerealname });
+        Table t = new Table{DisplayName = tablename, Columns = new List<Column>()};
+        foreach (var record in mapping)
+        {
+            t.Columns.Add(new Column
+            {
+                DisplayName = record.displayname,
+                Table = t,
+                Color = Color.FromArgb(int.Parse(record.color.Substring(0, 2), NumberStyles.HexNumber),
+                                    int.Parse(record.color.Substring(2, 2), NumberStyles.HexNumber),
+                                    int.Parse(record.color.Substring(4, 2), NumberStyles.HexNumber)),
+                Type = _reverseTypeMap[record.csharptype]
+            });
+        }
+
+        return t.Columns;
+    }
+
+    [Obsolete("Use SQL script instead")]
     public void CreateUsersTable()
     {
         CreateTable("users");
@@ -209,8 +276,8 @@ public class DatabaseManager
         CreateColumn("users", "priviliges", typeof(string));
         CreateColumn("users", "accountType", typeof(string));
     }
-
-
+    
+    [Obsolete("Handle it in your own code")]
     public bool ProcessLogin(string login, string password)
     {
         return HandleInTransaction(() =>
@@ -228,6 +295,5 @@ public class DatabaseManager
             }
         });
     }
-
 
 }
