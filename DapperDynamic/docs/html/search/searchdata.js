@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
-  0: "cdit",
-  1: "cdit",
+  0: "cdfistuw",
+  1: "cdfistuw",
   2: "d"
 };
 
