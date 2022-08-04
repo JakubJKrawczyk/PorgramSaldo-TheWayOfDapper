@@ -305,4 +305,28 @@ public class DatabaseManager
         return _connection;
     }
 
+    public string GetRealTableName(string displayName)
+    {
+        if(_isTableExists(displayName))
+        {
+            return _connection.QueryFirstOrDefault(
+                "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename",
+                new { tablename = displayName }).tablerealname;
+        }
+
+        return null;
+    }
+    
+    public string GetColumnRealName(string tableRealName, string displayName)
+    {
+        if(_isTableExists(tableRealName))
+        {
+            return _connection.QueryFirstOrDefault(
+                "SELECT `realname` FROM `usertablescolumns` WHERE `tablerealname` = @tablename AND `displayname` = @columnname",
+                new { tablename = tableRealName, columnname = displayName }).realname;
+        }
+
+        return null;
+    }
+
 }
