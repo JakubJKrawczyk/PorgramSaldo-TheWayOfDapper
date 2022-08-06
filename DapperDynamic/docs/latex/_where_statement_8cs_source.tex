@@ -1,0 +1,112 @@
+\hypertarget{_where_statement_8cs_source}{}\doxysection{Where\+Statement.\+cs}
+\label{_where_statement_8cs_source}\index{queries/WhereStatement.cs@{queries/WhereStatement.cs}}
+\mbox{\hyperlink{_where_statement_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00001}00001 \textcolor{keyword}{namespace }DapperDynamic.queries;}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00003}\mbox{\hyperlink{class_where_statement}{00003}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_where_statement}{WhereStatement}} : \mbox{\hyperlink{class_where_chain}{WhereChain}}, \mbox{\hyperlink{interface_i_statement}{IStatement}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00005}00005     \textcolor{keyword}{internal} List<WhereChain> \mbox{\hyperlink{class_where_chain}{WhereChain}} = \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00006}00006     \textcolor{keyword}{internal} \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}? BeforeComparasion \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00007}\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{00007}}     \textcolor{keyword}{public} \textcolor{keyword}{enum} \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00008}00008     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00009}00009         Equals,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00010}00010         NotEquals,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00011}00011         GreaterThan,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00012}00012         GreaterOrEqual,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00013}00013         LessThan,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00014}00014         LessOrEqual,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00015}00015     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00016}00016     }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00017}\mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{00017}}     \textcolor{keyword}{public} \textcolor{keyword}{enum} \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00018}00018     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00019}00019         And,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00020}00020         Or}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00021}00021     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00023}00023     \textcolor{keyword}{internal} \textcolor{keyword}{static} Dictionary<Operator, string> OperatorMap = \textcolor{keyword}{new}()}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00024}00024     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00025}00025         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.Equals, \textcolor{stringliteral}{"{}="{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00026}00026         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.NotEquals, \textcolor{stringliteral}{"{}!="{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00027}00027         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.GreaterThan, \textcolor{stringliteral}{"{}>"{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00028}00028         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.GreaterOrEqual, \textcolor{stringliteral}{"{}>="{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00029}00029         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.LessThan, \textcolor{stringliteral}{"{}<"{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00030}00030         \{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}.LessOrEqual, \textcolor{stringliteral}{"{}<="{}}\},}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00031}00031     \};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00033}\mbox{\hyperlink{class_where_statement_ab8d126be0b0c2ff8cb061e82949a894a}{00033}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_ab8d126be0b0c2ff8cb061e82949a894a}{Where}}(\mbox{\hyperlink{class_where_statement}{WhereStatement}} nested)}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00034}00034     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00035}00035         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count != 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set first where statement after an other statement"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00036}00036         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(nested);}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00037}00037         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00039}00039     }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00040}\mbox{\hyperlink{class_where_statement_a992e28ecfd08fdade2b1eca9dd13346e}{00040}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_a992e28ecfd08fdade2b1eca9dd13346e}{Where}}(}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00041}00041         \textcolor{keywordtype}{string} columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, \textcolor{keywordtype}{object} value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00042}00042         \textcolor{keywordtype}{string}? tableOrAlias = \textcolor{keyword}{null}, \textcolor{keywordtype}{bool} isColumnAlias = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isTableAlias = \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00043}00043     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00044}00044         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count != 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set first where statement after an other statement"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00045}00045         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_where_chain_single}{WhereChainSingle}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00046}00046         \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00047}00047             ColumnName = columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} = op, Value = value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00048}00048             TableName = tableOrAlias, NeedTranslateCn = !isColumnAlias, NeedTranslateTn = !isTableAlias}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00049}00049         \});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00050}00050         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00051}00051     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00052}00052     }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00053}\mbox{\hyperlink{class_where_statement_abdedd0c56263bcdd604b9f7fcd037f4e}{00053}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_abdedd0c56263bcdd604b9f7fcd037f4e}{OrWhere}}(\mbox{\hyperlink{class_where_statement}{WhereStatement}} nested)}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00054}00054     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00055}00055         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count == 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set next where statement as first"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00056}00056         nested.BeforeComparasion = \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}.Or;}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00057}00057         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(nested);}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00058}00058         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00061}\mbox{\hyperlink{class_where_statement_aa704495bd2215086f8dfe911eb75afd6}{00061}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_aa704495bd2215086f8dfe911eb75afd6}{OrWhere}}(}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00062}00062         \textcolor{keywordtype}{string} columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, \textcolor{keywordtype}{object} value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00063}00063         \textcolor{keywordtype}{string}? tableOrAlias = \textcolor{keyword}{null}, \textcolor{keywordtype}{bool} isColumnAlias = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isTableAlias = \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00064}00064     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00065}00065         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count == 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set next where statement as first"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00066}00066         \mbox{\hyperlink{class_where_chain_single}{WhereChainSingle}} wcs = \textcolor{keyword}{new} \mbox{\hyperlink{class_where_chain_single}{WhereChainSingle}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00067}00067         \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00068}00068             BeforeComparison = \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}.Or, ColumnName = columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} = op, Value = value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00069}00069             TableName = tableOrAlias, NeedTranslateCn = !isColumnAlias, NeedTranslateTn = !isTableAlias}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00070}00070         \};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00071}00071         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(wcs);}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00072}00072         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00073}00073     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00074}00074     }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00075}\mbox{\hyperlink{class_where_statement_a9ed7a3cd8fa4c8a7588a8b421368ac09}{00075}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_a9ed7a3cd8fa4c8a7588a8b421368ac09}{AndWhere}}(\mbox{\hyperlink{class_where_statement}{WhereStatement}} nested)}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00076}00076     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00077}00077         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count == 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set next where statement as first"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00078}00078         nested.BeforeComparasion = \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}.And;}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00079}00079         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(nested);}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00080}00080         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00082}00082     }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00083}\mbox{\hyperlink{class_where_statement_a6b717275da05cd36e48fffa005725dd0}{00083}}     \textcolor{keyword}{public} \mbox{\hyperlink{class_where_statement}{WhereStatement}} \mbox{\hyperlink{class_where_statement_a6b717275da05cd36e48fffa005725dd0}{AndWhere}}(}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00084}00084         \textcolor{keywordtype}{string} columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, \textcolor{keywordtype}{object} value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00085}00085         \textcolor{keywordtype}{string}? tableOrAlias = \textcolor{keyword}{null}, \textcolor{keywordtype}{bool} isColumnAlias = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isTableAlias = \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00086}00086     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00087}00087         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_where_chain}{WhereChain}}.Count == 0) \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Cannot set next where statement as first"{}});}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00088}00088         \mbox{\hyperlink{class_where_chain_single}{WhereChainSingle}} wcs = \textcolor{keyword}{new} \mbox{\hyperlink{class_where_chain_single}{WhereChainSingle}}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00089}00089         \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00090}00090             BeforeComparison = \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{Comparison}}.And, ColumnName = columnOrAlias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} = op, Value = value,}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00091}00091             TableName = tableOrAlias, NeedTranslateCn = !isColumnAlias, NeedTranslateTn = !isTableAlias}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00092}00092         \};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00093}00093         \mbox{\hyperlink{class_where_chain}{WhereChain}}.Add(wcs);}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00094}00094         \textcolor{keywordflow}{return} \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00095}00095     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00097}00097     IDictionary<string, NameType> \mbox{\hyperlink{interface_i_statement}{IStatement}}.\mbox{\hyperlink{interface_i_statement_a4856aac5151aa33b3e40a619e34201db}{GetNamesToTranslate}}()}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00098}00098     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00099}00099         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00100}00100     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00102}00102     Tuple<string, IDictionary<string, object>> \mbox{\hyperlink{interface_i_statement}{IStatement}}.\mbox{\hyperlink{interface_i_statement_ad0201ede2eac076c1065400e47a631a3}{GetStatement}}(IDictionary<string, string> dictionary)}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00103}00103     \{}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00104}00104         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00105}00105     \}}
+\DoxyCodeLine{\Hypertarget{_where_statement_8cs_source_l00106}00106 \}}
+
+\end{DoxyCode}

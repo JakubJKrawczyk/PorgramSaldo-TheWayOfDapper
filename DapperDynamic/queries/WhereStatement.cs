@@ -2,8 +2,8 @@
 
 public class WhereStatement : WhereChain, IStatement
 {
-    internal List<WhereChain> WhereChain = new();
-    internal Comparison? BeforeComparasion { get; set; }
+    private List<WhereChain> WhereChain = new();
+    private Comparison? BeforeComparasion { get; set; }
     public enum Operator
     {
         Equals,
@@ -96,7 +96,26 @@ public class WhereStatement : WhereChain, IStatement
 
     IDictionary<string, NameType> IStatement.GetNamesToTranslate()
     {
-        throw new NotImplementedException();
+        Dictionary<string, NameType> names = new();
+        foreach(WhereChain wc in WhereChain)
+        {
+            if(wc is WhereChainSingle wcs)
+            {
+                if(wcs.NeedTranslateCn) names.Add(wcs.ColumnName, NameType.Column);
+                if(wcs.TableName != null
+                   && wcs.NeedTranslateTn.HasValue
+                   && wcs.NeedTranslateTn.Value) names.Add(wcs.TableName, NameType.Table);
+            }
+            else
+            {
+                IStatement ws = (WhereStatement)wc;
+                foreach(var kvp in ws.GetNamesToTranslate())
+                {
+                    names.Add(kvp.Key, kvp.Value);
+                }
+            }
+        }
+        return names;
     }
 
     Tuple<string, IDictionary<string, object>> IStatement.GetStatement(IDictionary<string, string> dictionary)
