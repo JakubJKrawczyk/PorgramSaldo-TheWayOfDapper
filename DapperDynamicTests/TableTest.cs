@@ -1,6 +1,7 @@
 using System.Drawing;
 using DapperDynamic;
 using DapperDynamic.structures;
+using DapperDynamic.queries;
 using NUnit.Framework;
 
 namespace DapperDynamicTests;

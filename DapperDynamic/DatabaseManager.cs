@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using Dapper;
+using DapperDynamic.queries;
 using DapperDynamic.structures;
 using MySql.Data.MySqlClient;
 
@@ -182,7 +181,7 @@ public class DatabaseManager
             return result == 1;
         });
     }
-
+    
     public bool Insert(InsertQuery insertQuery)
     {
         if(!_isTableExists(insertQuery.TableDisplayName)) throw new ArgumentException("Table does not exist");
@@ -264,19 +263,6 @@ public class DatabaseManager
         return t.Columns;
     }
 
-    [Obsolete("Use SQL script instead")]
-    public void CreateUsersTable()
-    {
-        CreateTable("users");
-        // users columns section
-        CreateColumn("users", "login", typeof(string));
-        CreateColumn("users", "passwd", typeof(string));
-        CreateColumn("users", "firstName", typeof(string));
-        CreateColumn("users", "lastName", typeof(string));
-        CreateColumn("users", "priviliges", typeof(string));
-        CreateColumn("users", "accountType", typeof(string));
-    }
-    
     [Obsolete("Handle it in your own code")]
     public bool ProcessLogin(string login, string password)
     {
@@ -294,6 +280,53 @@ public class DatabaseManager
                 return false;
             }
         });
+    }
+
+    [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
+    public bool Select(SelectQuery query)
+    {
+        throw new NotImplementedException();
+    }
+    
+    [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
+    public bool Update(UpdateQuery query)
+    {
+        throw new NotImplementedException();
+    }
+    
+    [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
+    public bool Delete(DeleteQuery query)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public MySqlConnection GetConnection()
+    {
+        return _connection;
+    }
+
+    public string GetRealTableName(string displayName)
+    {
+        if(_isTableExists(displayName))
+        {
+            return _connection.QueryFirstOrDefault(
+                "SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename",
+                new { tablename = displayName }).tablerealname;
+        }
+
+        return null;
+    }
+    
+    public string GetColumnRealName(string tableRealName, string displayName)
+    {
+        if(_isTableExists(tableRealName))
+        {
+            return _connection.QueryFirstOrDefault(
+                "SELECT `realname` FROM `usertablescolumns` WHERE `tablerealname` = @tablename AND `displayname` = @columnname",
+                new { tablename = tableRealName, columnname = displayName }).realname;
+        }
+
+        return null;
     }
 
 }

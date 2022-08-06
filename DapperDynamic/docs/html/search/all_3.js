@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['table_0',['Table',['../class_table.html',1,'']]]
+  ['insertquery_0',['InsertQuery',['../class_insert_query.html',1,'']]],
+  ['istatement_1',['IStatement',['../interface_i_statement.html',1,'']]]
 ];
