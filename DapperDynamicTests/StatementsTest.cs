@@ -66,13 +66,13 @@ public class StatementsTest
             {"name", "col2"},
             {"count", "col3"}
         });
-        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 or (col2 = @name_0 and col3 > @count_0)"));
+        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 or (col2 = @name_0_0 and col3 > @count_0_0)"));
         Assert.True(sql.Item2.ContainsKey("id_0"));
-        Assert.True(sql.Item2.ContainsKey("name_0"));
-        Assert.True(sql.Item2.ContainsKey("count_0"));
+        Assert.True(sql.Item2.ContainsKey("name_0_0"));
+        Assert.True(sql.Item2.ContainsKey("count_0_0"));
         Assert.That(sql.Item2["id_0"], Is.EqualTo(1));
-        Assert.That(sql.Item2["name_0"], Is.EqualTo("test"));
-        Assert.That(sql.Item2["count_0"], Is.EqualTo(100));
+        Assert.That(sql.Item2["name_0_0"], Is.EqualTo("test"));
+        Assert.That(sql.Item2["count_0_0"], Is.EqualTo(100));
     }
 
     [Test]
@@ -87,7 +87,7 @@ public class StatementsTest
             {"name", "col2"}
         });
         Assert.That(statement.Item1, Is.EqualTo("WHERE col1 = @id_0 and col2 is null"));
-        Assert.True(statement.Item2.ContainsKey("id"));
+        Assert.True(statement.Item2.ContainsKey("id_0"));
         Assert.That(statement.Item2["id_0"], Is.EqualTo(1));
     }
 
@@ -111,7 +111,7 @@ public class StatementsTest
             {"id", "col1"},
             {"q2", "tab1"}
         });
-        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 and q1.name != @q1_0 or tab1.count > @q2_0"));
+        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 and q1.name != @name_0 or tab1.count > @count_0"));
     }
 
     [Test]
