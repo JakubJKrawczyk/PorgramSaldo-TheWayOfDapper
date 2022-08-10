@@ -1,0 +1,70 @@
+\hypertarget{class_database_manager}{}\doxysection{Database\+Manager Class Reference}
+\label{class_database_manager}\index{DatabaseManager@{DatabaseManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_manager_aa8859e8d49aa4ffd71dde3392de01460}\label{class_database_manager_aa8859e8d49aa4ffd71dde3392de01460}} 
+bool {\bfseries Handle\+In\+Transaction} (Func$<$ bool $>$ statement, bool reopen\+Connection=true)
+\item 
+\mbox{\Hypertarget{class_database_manager_a9d0b9e930611e30297badce851f83ebf}\label{class_database_manager_a9d0b9e930611e30297badce851f83ebf}} 
+bool {\bfseries Create\+Table} (string name, bool drop\+If\+Exists=false)
+\item 
+\mbox{\Hypertarget{class_database_manager_a4b02b4565aa07242d2c7ba039506268e}\label{class_database_manager_a4b02b4565aa07242d2c7ba039506268e}} 
+bool {\bfseries Delete\+Table} (string name)
+\item 
+\mbox{\Hypertarget{class_database_manager_aec973165384a5f96ef3982e917b5f010}\label{class_database_manager_aec973165384a5f96ef3982e917b5f010}} 
+bool {\bfseries Is\+Table\+Exists} (string name, string? schema=null)
+\item 
+\mbox{\Hypertarget{class_database_manager_a99d08a6a9ca5379636f73f228b7ef36d}\label{class_database_manager_a99d08a6a9ca5379636f73f228b7ef36d}} 
+bool {\bfseries Create\+Column} (string tablename, string colname, Type type, string color=\char`\"{}\#000000\char`\"{})
+\item 
+\mbox{\Hypertarget{class_database_manager_a4cd9089863381c929b8ccaf070514c29}\label{class_database_manager_a4cd9089863381c929b8ccaf070514c29}} 
+bool {\bfseries Delete\+Column} (string tabledisplayname, string colname)
+\item 
+\mbox{\Hypertarget{class_database_manager_a6fcf5281ea1e7ad8473cc0d94ffb2e02}\label{class_database_manager_a6fcf5281ea1e7ad8473cc0d94ffb2e02}} 
+bool {\bfseries Insert} (\mbox{\hyperlink{class_insert_query}{Insert\+Query}} insert\+Query)
+\item 
+\mbox{\Hypertarget{class_database_manager_aafc36e1380d93eff020f121e893e1c16}\label{class_database_manager_aafc36e1380d93eff020f121e893e1c16}} 
+ICollection$<$ \mbox{\hyperlink{class_table}{Table}} $>$ {\bfseries Show\+Tables} ()
+\item 
+\mbox{\Hypertarget{class_database_manager_a9f06910e55f41b70e1067a5cfb347918}\label{class_database_manager_a9f06910e55f41b70e1067a5cfb347918}} 
+ICollection$<$ \mbox{\hyperlink{class_column}{Column}} $>$ {\bfseries Show\+Columns} (string tablename)
+\item 
+\mbox{\Hypertarget{class_database_manager_aaad709633955bc08410fbb32cbac83b0}\label{class_database_manager_aaad709633955bc08410fbb32cbac83b0}} 
+bool {\bfseries Process\+Login} (string login, string password)
+\item 
+\mbox{\Hypertarget{class_database_manager_a83bb6347c1659396ab8831efe8fbf526}\label{class_database_manager_a83bb6347c1659396ab8831efe8fbf526}} 
+bool {\bfseries Select} (\mbox{\hyperlink{class_select_query}{Select\+Query}} query)
+\item 
+\mbox{\Hypertarget{class_database_manager_a6962db525011a098305fcd1219e8291d}\label{class_database_manager_a6962db525011a098305fcd1219e8291d}} 
+bool {\bfseries Update} (\mbox{\hyperlink{class_update_query}{Update\+Query}} query)
+\item 
+\mbox{\Hypertarget{class_database_manager_a4dd151d219088fbb155376e3423ef55e}\label{class_database_manager_a4dd151d219088fbb155376e3423ef55e}} 
+bool {\bfseries Delete} (\mbox{\hyperlink{class_delete_query}{Delete\+Query}} query)
+\item 
+\mbox{\Hypertarget{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}\label{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}} 
+My\+Sql\+Connection {\bfseries Get\+Connection} ()
+\item 
+\mbox{\Hypertarget{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}\label{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}} 
+string {\bfseries Get\+Real\+Table\+Name} (string display\+Name)
+\item 
+\mbox{\Hypertarget{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}\label{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}} 
+string {\bfseries Get\+Column\+Real\+Name} (string table\+Real\+Name, string display\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_manager_a1105d82a53d0de881cfd987835147845}\label{class_database_manager_a1105d82a53d0de881cfd987835147845}} 
+static void {\bfseries Initialize} (string user=\char`\"{}root\char`\"{}, string password=\char`\"{}\char`\"{}, string database=\char`\"{}example\char`\"{}, string host=\char`\"{}localhost\char`\"{}, string port=\char`\"{}3306\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_manager_a93c76fd25f0ab845eaad95b5e7cbc883}\label{class_database_manager_a93c76fd25f0ab845eaad95b5e7cbc883}} 
+static ? \mbox{\hyperlink{class_database_manager}{Database\+Manager}} {\bfseries Instance}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Manager.\+cs\end{DoxyCompactItemize}

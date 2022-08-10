@@ -22,10 +22,10 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
             _manager = DatabaseManager.Instance;
 
 
-            if (!_manager._isTableExists("users", _manager.DataBaseName))
-            {
-                _manager.CreateUsersTable();
-            }
+            // if (!_manager._isTableExists("users", _manager.DataBaseName))
+            // {
+            //     _manager.CreateUsersTable();
+            // }
 
         }
 
