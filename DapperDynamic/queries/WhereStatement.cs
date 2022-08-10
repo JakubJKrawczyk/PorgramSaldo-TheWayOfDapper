@@ -49,6 +49,22 @@ public class WhereStatement : WhereChain, IStatement
         });
         return this;
     }
+
+    public WhereStatement Where(
+        string columnOrAlias1, string tableOrAlias1, Operator op,
+        string columnOrAlias2, string tableOrAlias2,
+        bool isColumnAlias1 = false, bool isTableAlias1 = false,
+        bool isColumnAlias2 = false, bool isTableAlias2 = false)
+    {
+        throw new NotImplementedException();
+    }
+
+    public WhereStatement Where(
+        string columnOrAlias1, Operator op, string columnOrAlias2,
+        bool isColumnAlias1 = false, bool isColumnAlias2 = false)
+    {
+        throw new NotImplementedException();
+    }
     
     public WhereStatement OrWhere(WhereStatement nested)
     {

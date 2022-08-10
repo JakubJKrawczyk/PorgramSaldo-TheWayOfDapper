@@ -36,4 +36,9 @@ public class SelectQuery : IStatement
     {
         throw new NotImplementedException();
     }
+
+    public SelectQuery Select(string productName)
+    {
+        throw new NotImplementedException();
+    }
 }

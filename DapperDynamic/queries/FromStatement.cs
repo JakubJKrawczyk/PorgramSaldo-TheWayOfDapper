@@ -12,42 +12,42 @@ public class FromStatement
         
     }
     
-    public FromStatement InnerJoin(string tableDisplayName, string alias, WhereStatement on)
+    public FromStatement InnerJoin(string tableDisplayName, WhereStatement on, string? alias = null)
     {
         return this;
     }
     
-    public FromStatement InnerJoin(SelectQuery selectQuery, string alias, WhereStatement on)
+    public FromStatement InnerJoin(SelectQuery selectQuery, WhereStatement on, string alias)
     {
         return this;
     }
     
-    public FromStatement LeftJoin(string tableDisplayName, string alias, WhereStatement on)
+    public FromStatement LeftJoin(string tableDisplayName, WhereStatement on, string? alias = null)
     {
         return this;
     }
     
-    public FromStatement LeftJoin(SelectQuery selectQuery, WhereStatement on)
+    public FromStatement LeftJoin(SelectQuery selectQuery, WhereStatement on, string alias)
     {
         return this;
     }
     
-    public FromStatement RightJoin(string tableDisplayName, WhereStatement on)
+    public FromStatement RightJoin(string tableDisplayName, WhereStatement on, string? alias = null)
     {
         return this;
     }
     
-    public FromStatement RightJoin(SelectQuery selectQuery, WhereStatement on)
+    public FromStatement RightJoin(SelectQuery selectQuery, WhereStatement on, string alias)
     {
         return this;
     }
     
-    public FromStatement FullJoin(string tableDisplayName, WhereStatement on)
+    public FromStatement FullJoin(string tableDisplayName, WhereStatement on, string? alias = null)
     {
         return this;
     }
     
-    public FromStatement FullJoin(SelectQuery selectQuery, WhereStatement on)
+    public FromStatement FullJoin(SelectQuery selectQuery, WhereStatement on, string alias)
     {
         return this;
     }

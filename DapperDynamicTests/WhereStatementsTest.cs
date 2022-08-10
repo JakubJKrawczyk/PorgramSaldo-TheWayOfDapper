@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace DapperDynamicTests;
 
-public class StatementsTest
+public class WhereStatementsTest
 {
     [Test]
     public void WhereStatementSimple()
@@ -53,7 +53,7 @@ public class StatementsTest
         WhereStatement whereOuter = new WhereStatement();
         whereOuter.Where("id", WhereStatement.Operator.Equals, 1);
         WhereStatement whereInner = new WhereStatement();
-        whereInner.Where("name", WhereStatement.Operator.Equals, "test");
+        whereInner.Where("name", WhereStatement.Operator.Equals, (object)"test");
         whereInner.AndWhere("count", WhereStatement.Operator.GreaterThan, 100);
         whereOuter.OrWhere(whereInner);
         var tts = ((IStatement)whereOuter).GetNamesToTranslate();
