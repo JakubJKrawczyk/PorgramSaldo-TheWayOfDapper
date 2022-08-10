@@ -129,4 +129,37 @@ public class WhereStatementsTest
         Assert.True(statement.Item2.ContainsKey("id_0"));
         Assert.That(statement.Item2["id_0"], Is.EqualTo(1));
     }
+
+    [Test]
+    public void WhereStatementCompareColumns()
+    {
+        WhereStatement where = new WhereStatement();
+        where.Where("ready_date", WhereStatement.Operator.GreaterThan, "start_date");
+        var statement = ((IStatement)where).GetStatement(new Dictionary<string, string>()
+        {
+            {"ready_date", "col1"},
+            {"start_date", "col2"}
+        });
+        Assert.That(statement.Item1, Is.EqualTo("WHERE col1 > col2"));
+    }
+
+    [Test]
+    public void WhereStatementColumnsFormDifferentTables()
+    {
+        WhereStatement where = new WhereStatement();
+        where.Where("id", "order", WhereStatement.Operator.Equals, "id", "order_item");
+        var names = ((IStatement)where).GetNamesToTranslate();
+        Assert.IsTrue(names.ContainsKey("order.id"));
+        Assert.IsTrue(names.ContainsKey("order_item.id"));
+        Assert.IsTrue(names.ContainsKey("order"));
+        Assert.IsTrue(names.ContainsKey("order_item"));
+        Tuple<string, IDictionary<string, object>> sql = ((IStatement)where).GetStatement(new Dictionary<string, string>()
+        {
+            {"order.id", "col1"},
+            {"order_item.id", "col2"},
+            {"order", "tab1"},
+            {"order_item", "tab2"}
+        });
+        Assert.That(sql.Item1, Is.EqualTo("WHERE tab1.col1 = tab2.col2"));
+    }
 }
