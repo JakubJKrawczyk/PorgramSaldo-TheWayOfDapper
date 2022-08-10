@@ -27,11 +27,6 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
                 _manager.CreateUsersTable();
             }
 
-
-
-
-
-
         }
 
         public bool Login(System.Windows.Controls.TextBox login, System.Windows.Controls.TextBox password )
