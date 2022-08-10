@@ -283,7 +283,7 @@ public class DatabaseManager
     }
 
     [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
-    public bool Select(SelectQuery query)
+    public ICollection<dynamic> Select(SelectQuery query)
     {
         throw new NotImplementedException();
     }

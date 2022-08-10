@@ -37,7 +37,7 @@ public class SelectQuery : IStatement
         throw new NotImplementedException();
     }
 
-    public SelectQuery Select(string productName)
+    public SelectQuery Select(string productName, string? alias = null)
     {
         throw new NotImplementedException();
     }

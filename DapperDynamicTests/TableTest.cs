@@ -94,4 +94,24 @@ public class TableTests
         Assert.That(b.Type, Is.EqualTo(typeof(double)));
         Assert.That(b.Color, Is.EqualTo(Color.FromArgb(255, 0, 0)));
     }
+
+    [Test]
+    public void SelectTest()
+    {
+        _db.CreateTable("testselect", true);
+        _db.CreateColumn("testselect", "name", typeof(string), "00FF00");
+        _db.CreateColumn("testselect", "age", typeof(int), "FF0000");
+        _db.Insert(new InsertQuery("testselect").Into("name", "John").Into("age", 20));
+        _db.Insert(new InsertQuery("testselect").Into("name", "Henry").Into("age", 40));
+        var selectQuery = new SelectQuery()
+            .Select("name", "name")
+            .Select("age", "age")
+            .From(new FromStatement("testselect"));
+        var result = _db.Select(selectQuery);
+        Assert.That(result.GetEnumerator().Current.name, Is.EqualTo("John"));
+        Assert.That(result.GetEnumerator().Current.age, Is.EqualTo(20));
+        result.GetEnumerator().MoveNext();
+        Assert.That(result.GetEnumerator().Current.name, Is.EqualTo("Henry"));
+        Assert.That(result.GetEnumerator().Current.age, Is.EqualTo(40));
+    }
 }
