@@ -104,14 +104,13 @@ public class TableTests
         _db.Insert(new InsertQuery("testselect").Into("name", "John").Into("age", 20));
         _db.Insert(new InsertQuery("testselect").Into("name", "Henry").Into("age", 40));
         var selectQuery = new SelectQuery()
-            .Select("name", "name")
-            .Select("age", "age")
+            .Select("name", true, "name")
+            .Select("age", true, "age")
             .From(new FromStatement("testselect"));
-        var result = _db.Select(selectQuery);
-        Assert.That(result.GetEnumerator().Current.name, Is.EqualTo("John"));
-        Assert.That(result.GetEnumerator().Current.age, Is.EqualTo(20));
-        result.GetEnumerator().MoveNext();
-        Assert.That(result.GetEnumerator().Current.name, Is.EqualTo("Henry"));
-        Assert.That(result.GetEnumerator().Current.age, Is.EqualTo(40));
+        var result = _db.Select(selectQuery).ToArray();
+        Assert.That(result[0].name, Is.EqualTo("John"));
+        Assert.That(result[0].age, Is.EqualTo(20));
+        Assert.That(result[1].name, Is.EqualTo("Henry"));
+        Assert.That(result[1].age, Is.EqualTo(40));
     }
 }

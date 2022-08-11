@@ -282,10 +282,49 @@ public class DatabaseManager
         });
     }
 
-    [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
-    public ICollection<dynamic> Select(SelectQuery query)
+    public IEnumerable<dynamic> Select(SelectQuery query)
     {
-        throw new NotImplementedException();
+        var toTranslate = ((IStatement)query).GetNamesToTranslate();
+        var dictionary = new Dictionary<string, string>();
+        foreach(var (name, type) in toTranslate)
+        {
+            if(type == NameType.Table)
+            {
+                dictionary.Add(name, _connection.QueryFirst(
+                        "SELECT `tablerealname` AS trn FROM `usertables` WHERE `tabledisplayname` = @name",
+                        new { name })
+                    .trn);
+                continue;
+            }
+
+            if (name.Contains("."))
+            {
+                var split = name.Split('.');
+                dictionary.Add(split[1], _connection.QueryFirst(
+                        "SELECT `realname` AS crn" +
+                        " FROM `usertablescolumns` INNER JOIN usertables u on usertablescolumns.tablerealname = u.tablerealname" +
+                        " WHERE `tabledisplayname` = @table AND `displayname` = @name",
+                        new { table = dictionary[split[0]], name = split[1] })
+                    .crn);
+            }
+            else
+            {
+                var tables = query.GetInvolvedTables();
+                foreach(var table in tables)
+                {
+                    var column = _connection.QueryFirstOrDefault(
+                        "SELECT `realname` AS crn" +
+                        " FROM `usertablescolumns` INNER JOIN usertables u on usertablescolumns.tablerealname = u.tablerealname" +
+                        " WHERE `tabledisplayname` = @table AND `displayname` = @name",
+                        new { table = table, name = name });
+                    if(column is null) continue;
+                    dictionary.Add(name, column.crn);
+                    break;
+                }
+            }
+        }
+        var statement = ((IStatement)query).GetStatement(dictionary);
+        return _connection.Query(statement.Item1, statement.Item2);
     }
     
     [Obsolete("Handle it using GetConnection, not implemented - placeholder")]
