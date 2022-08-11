@@ -30,6 +30,10 @@ enum \mbox{\hyperlink{class_where_statement_a1a95cc48bdcca1fb684c561fde0410a8}{C
 \item 
 \mbox{\hyperlink{class_where_statement}{Where\+Statement}} \mbox{\hyperlink{class_where_statement_a992e28ecfd08fdade2b1eca9dd13346e}{Where}} (string column\+Or\+Alias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, object value, string? table\+Or\+Alias=null, bool is\+Column\+Alias=false, bool is\+Table\+Alias=false)
 \item 
+\mbox{\hyperlink{class_where_statement}{Where\+Statement}} \mbox{\hyperlink{class_where_statement_a85d3e94e28072453e1f9b63ec941c367}{Where}} (string column\+Or\+Alias1, string table\+Or\+Alias1, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, string column\+Or\+Alias2, string table\+Or\+Alias2, bool is\+Column\+Alias1=false, bool is\+Table\+Alias1=false, bool is\+Column\+Alias2=false, bool is\+Table\+Alias2=false)
+\item 
+\mbox{\hyperlink{class_where_statement}{Where\+Statement}} \mbox{\hyperlink{class_where_statement_a2ec8303820e578dcc7c805c1ca428fdb}{Where}} (string column\+Or\+Alias1, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, string column\+Or\+Alias2, bool is\+Column\+Alias1=false, bool is\+Column\+Alias2=false)
+\item 
 \mbox{\hyperlink{class_where_statement}{Where\+Statement}} \mbox{\hyperlink{class_where_statement_abdedd0c56263bcdd604b9f7fcd037f4e}{Or\+Where}} (\mbox{\hyperlink{class_where_statement}{Where\+Statement}} nested)
 \item 
 \mbox{\hyperlink{class_where_statement}{Where\+Statement}} \mbox{\hyperlink{class_where_statement_aa704495bd2215086f8dfe911eb75afd6}{Or\+Where}} (string column\+Or\+Alias, \mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}} op, object value, string? table\+Or\+Alias=null, bool is\+Column\+Alias=false, bool is\+Table\+Alias=false)
@@ -115,7 +119,7 @@ Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00007}{7}} of f
 
 
 
-Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00083}{83}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00099}{99}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
 
 \mbox{\Hypertarget{class_where_statement_a9ed7a3cd8fa4c8a7588a8b421368ac09}\label{class_where_statement_a9ed7a3cd8fa4c8a7588a8b421368ac09}} 
 \index{WhereStatement@{WhereStatement}!AndWhere@{AndWhere}}
@@ -125,7 +129,7 @@ Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00083}{83}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00075}{75}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00091}{91}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
 
 \mbox{\Hypertarget{class_where_statement_aa704495bd2215086f8dfe911eb75afd6}\label{class_where_statement_aa704495bd2215086f8dfe911eb75afd6}} 
 \index{WhereStatement@{WhereStatement}!OrWhere@{OrWhere}}
@@ -135,7 +139,7 @@ Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00075}{75}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00061}{61}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00077}{77}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
 
 \mbox{\Hypertarget{class_where_statement_abdedd0c56263bcdd604b9f7fcd037f4e}\label{class_where_statement_abdedd0c56263bcdd604b9f7fcd037f4e}} 
 \index{WhereStatement@{WhereStatement}!OrWhere@{OrWhere}}
@@ -145,22 +149,42 @@ Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00061}{61}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00053}{53}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
 
 \mbox{\Hypertarget{class_where_statement_a992e28ecfd08fdade2b1eca9dd13346e}\label{class_where_statement_a992e28ecfd08fdade2b1eca9dd13346e}} 
 \index{WhereStatement@{WhereStatement}!Where@{Where}}
 \index{Where@{Where}!WhereStatement@{WhereStatement}}
-\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_where_statement}{Where\+Statement}} Where\+Statement.\+Where (\begin{DoxyParamCaption}\item[{string}]{column\+Or\+Alias,  }\item[{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}}]{op,  }\item[{object}]{value,  }\item[{string?}]{table\+Or\+Alias = {\ttfamily null},  }\item[{bool}]{is\+Column\+Alias = {\ttfamily false},  }\item[{bool}]{is\+Table\+Alias = {\ttfamily false} }\end{DoxyParamCaption})}
 
 
 
 Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
 
+\mbox{\Hypertarget{class_where_statement_a2ec8303820e578dcc7c805c1ca428fdb}\label{class_where_statement_a2ec8303820e578dcc7c805c1ca428fdb}} 
+\index{WhereStatement@{WhereStatement}!Where@{Where}}
+\index{Where@{Where}!WhereStatement@{WhereStatement}}
+\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_where_statement}{Where\+Statement}} Where\+Statement.\+Where (\begin{DoxyParamCaption}\item[{string}]{column\+Or\+Alias1,  }\item[{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}}]{op,  }\item[{string}]{column\+Or\+Alias2,  }\item[{bool}]{is\+Column\+Alias1 = {\ttfamily false},  }\item[{bool}]{is\+Column\+Alias2 = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00062}{62}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+
+\mbox{\Hypertarget{class_where_statement_a85d3e94e28072453e1f9b63ec941c367}\label{class_where_statement_a85d3e94e28072453e1f9b63ec941c367}} 
+\index{WhereStatement@{WhereStatement}!Where@{Where}}
+\index{Where@{Where}!WhereStatement@{WhereStatement}}
+\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_where_statement}{Where\+Statement}} Where\+Statement.\+Where (\begin{DoxyParamCaption}\item[{string}]{column\+Or\+Alias1,  }\item[{string}]{table\+Or\+Alias1,  }\item[{\mbox{\hyperlink{class_where_statement_ac3e0463ff2cde9f91ea6012bdf8d2a57}{Operator}}}]{op,  }\item[{string}]{column\+Or\+Alias2,  }\item[{string}]{table\+Or\+Alias2,  }\item[{bool}]{is\+Column\+Alias1 = {\ttfamily false},  }\item[{bool}]{is\+Table\+Alias1 = {\ttfamily false},  }\item[{bool}]{is\+Column\+Alias2 = {\ttfamily false},  }\item[{bool}]{is\+Table\+Alias2 = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_where_statement_8cs_source_l00053}{53}} of file \mbox{\hyperlink{_where_statement_8cs_source}{Where\+Statement.\+cs}}.
+
 \mbox{\Hypertarget{class_where_statement_ab8d126be0b0c2ff8cb061e82949a894a}\label{class_where_statement_ab8d126be0b0c2ff8cb061e82949a894a}} 
 \index{WhereStatement@{WhereStatement}!Where@{Where}}
 \index{Where@{Where}!WhereStatement@{WhereStatement}}
-\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Where()}{Where()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_where_statement}{Where\+Statement}} Where\+Statement.\+Where (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_where_statement}{Where\+Statement}}}]{nested }\end{DoxyParamCaption})}
 
 

@@ -285,53 +285,92 @@
 \DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00282}00282         \});}
 \DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00283}00283     \}}
 \DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00284}00284 }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00285}00285     [Obsolete(\textcolor{stringliteral}{"{}Handle it using GetConnection, not implemented -\/ placeholder"{}})]}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00286}\mbox{\hyperlink{class_database_manager_a83bb6347c1659396ab8831efe8fbf526}{00286}}     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_database_manager_a83bb6347c1659396ab8831efe8fbf526}{Select}}(\mbox{\hyperlink{class_select_query}{SelectQuery}} query)}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00287}00287     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00288}00288         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00289}00289     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00290}00290     }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00291}00291     [Obsolete(\textcolor{stringliteral}{"{}Handle it using GetConnection, not implemented -\/ placeholder"{}})]}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00292}\mbox{\hyperlink{class_database_manager_a6962db525011a098305fcd1219e8291d}{00292}}     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_database_manager_a6962db525011a098305fcd1219e8291d}{Update}}(\mbox{\hyperlink{class_update_query}{UpdateQuery}} query)}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00293}00293     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00294}00294         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00295}00295     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00296}00296     }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00297}00297     [Obsolete(\textcolor{stringliteral}{"{}Handle it using GetConnection, not implemented -\/ placeholder"{}})]}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00298}\mbox{\hyperlink{class_database_manager_a4dd151d219088fbb155376e3423ef55e}{00298}}     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_database_manager_a4dd151d219088fbb155376e3423ef55e}{Delete}}(\mbox{\hyperlink{class_delete_query}{DeleteQuery}} query)}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00299}00299     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00300}00300         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00301}00301     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00302}00302     }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00303}\mbox{\hyperlink{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}{00303}}     \textcolor{keyword}{public} MySqlConnection \mbox{\hyperlink{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}{GetConnection}}()}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00304}00304     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00305}00305         \textcolor{keywordflow}{return} \_connection;}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00306}00306     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00307}00307 }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00308}\mbox{\hyperlink{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}{00308}}     \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}{GetRealTableName}}(\textcolor{keywordtype}{string} displayName)}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00309}00309     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00310}00310         \textcolor{keywordflow}{if}(\_isTableExists(displayName))}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00311}00311         \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00312}00312             \textcolor{keywordflow}{return} \_connection.QueryFirstOrDefault(}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00313}00313                 \textcolor{stringliteral}{"{}SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename"{}},}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00314}00314                 \textcolor{keyword}{new} \{ tablename = displayName \}).tablerealname;}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00315}00315         \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00316}00316 }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00317}00317         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00318}00318     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00319}00319     }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00320}\mbox{\hyperlink{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}{00320}}     \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}{GetColumnRealName}}(\textcolor{keywordtype}{string} tableRealName, \textcolor{keywordtype}{string} displayName)}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00321}00321     \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00322}00322         \textcolor{keywordflow}{if}(\_isTableExists(tableRealName))}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00323}00323         \{}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00324}00324             \textcolor{keywordflow}{return} \_connection.QueryFirstOrDefault(}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00325}00325                 \textcolor{stringliteral}{"{}SELECT `realname` FROM `usertablescolumns` WHERE `tablerealname` = @tablename AND `displayname` = @columnname"{}},}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00326}00326                 \textcolor{keyword}{new} \{ tablename = tableRealName, columnname = displayName \}).realname;}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00327}00327         \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00328}00328 }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00329}00329         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00330}00330     \}}
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00331}00331 }
-\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00332}00332 \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00285}\mbox{\hyperlink{class_database_manager_ab4271e90e9d07c0314cfd46320ba792c}{00285}}     \textcolor{keyword}{public} IEnumerable<dynamic> \mbox{\hyperlink{class_database_manager_ab4271e90e9d07c0314cfd46320ba792c}{Select}}(\mbox{\hyperlink{class_select_query}{SelectQuery}} query)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00286}00286     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00287}00287         var toTranslate = ((\mbox{\hyperlink{interface_i_statement}{IStatement}})query).GetNamesToTranslate();}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00288}00288         var dictionary = \textcolor{keyword}{new} Dictionary<string, string>();}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00289}00289         \textcolor{keywordflow}{foreach}(var (name, type) in toTranslate)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00290}00290         \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00291}00291             \textcolor{keywordflow}{if}(type == \mbox{\hyperlink{_i_statement_8cs_a7bface9ae914409f74d5ec997fd83153}{NameType}}.Table)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00292}00292             \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00293}00293                 dictionary.Add(name, \_connection.QueryFirst(}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00294}00294                         \textcolor{stringliteral}{"{}SELECT `tablerealname` AS trn FROM `usertables` WHERE `tabledisplayname` = @name"{}},}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00295}00295                         \textcolor{keyword}{new} \{ name \})}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00296}00296                     .trn);}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00297}00297                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00298}00298             \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00299}00299 }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00300}00300             \textcolor{keywordflow}{if} (name.Contains(\textcolor{stringliteral}{"{}."{}}))}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00301}00301             \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00302}00302                 var split = name.Split(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00303}00303                 dictionary.Add(split[1], \_connection.QueryFirst(}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00304}00304                         \textcolor{stringliteral}{"{}SELECT `realname` AS crn"{}} +}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00305}00305                         \textcolor{stringliteral}{"{} FROM `usertablescolumns` INNER JOIN usertables u on usertablescolumns.tablerealname = u.tablerealname"{}} +}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00306}00306                         \textcolor{stringliteral}{"{} WHERE `tabledisplayname` = @table AND `displayname` = @name"{}},}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00307}00307                         \textcolor{keyword}{new} \{ table = dictionary[split[0]], name = split[1] \})}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00308}00308                     .crn);}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00309}00309             \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00310}00310             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00311}00311             \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00312}00312                 var tables = query.GetInvolvedTables();}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00313}00313                 \textcolor{keywordflow}{foreach}(var table \textcolor{keywordflow}{in} tables)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00314}00314                 \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00315}00315                     var column = \_connection.QueryFirstOrDefault(}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00316}00316                         \textcolor{stringliteral}{"{}SELECT `realname` AS crn"{}} +}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00317}00317                         \textcolor{stringliteral}{"{} FROM `usertablescolumns` INNER JOIN usertables u on usertablescolumns.tablerealname = u.tablerealname"{}} +}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00318}00318                         \textcolor{stringliteral}{"{} WHERE `tabledisplayname` = @table AND `displayname` = @name"{}},}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00319}00319                         \textcolor{keyword}{new} \{ table = table, name = name \});}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00320}00320                     \textcolor{keywordflow}{if}(column is \textcolor{keyword}{null}) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00321}00321                     dictionary.Add(name, column.crn);}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00322}00322                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00323}00323                 \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00324}00324             \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00325}00325         \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00326}00326         var statement = ((\mbox{\hyperlink{interface_i_statement}{IStatement}})query).GetStatement(dictionary);}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00327}00327         \textcolor{keywordflow}{return} \_connection.Query(statement.Item1, statement.Item2);}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00328}00328     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00329}00329     }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00330}00330     [Obsolete(\textcolor{stringliteral}{"{}Handle it using GetConnection, not implemented -\/ placeholder"{}})]}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00331}\mbox{\hyperlink{class_database_manager_a6962db525011a098305fcd1219e8291d}{00331}}     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_database_manager_a6962db525011a098305fcd1219e8291d}{Update}}(\mbox{\hyperlink{class_update_query}{UpdateQuery}} query)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00332}00332     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00333}00333         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00334}00334     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00335}00335     }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00336}00336     [Obsolete(\textcolor{stringliteral}{"{}Handle it using GetConnection, not implemented -\/ placeholder"{}})]}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00337}\mbox{\hyperlink{class_database_manager_a4dd151d219088fbb155376e3423ef55e}{00337}}     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_database_manager_a4dd151d219088fbb155376e3423ef55e}{Delete}}(\mbox{\hyperlink{class_delete_query}{DeleteQuery}} query)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00338}00338     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00339}00339         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException();}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00340}00340     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00341}00341     }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00342}\mbox{\hyperlink{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}{00342}}     \textcolor{keyword}{public} MySqlConnection \mbox{\hyperlink{class_database_manager_ae195cb2c1c3422636a7bf44d52fc6ee0}{GetConnection}}()}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00343}00343     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00344}00344         \textcolor{keywordflow}{return} \_connection;}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00345}00345     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00346}00346 }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00347}\mbox{\hyperlink{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}{00347}}     \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_database_manager_a2209ea05f8592737d524660d6aa5c8cb}{GetRealTableName}}(\textcolor{keywordtype}{string} displayName)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00348}00348     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00349}00349         \textcolor{keywordflow}{if}(\_isTableExists(displayName))}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00350}00350         \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00351}00351             \textcolor{keywordflow}{return} \_connection.QueryFirstOrDefault(}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00352}00352                 \textcolor{stringliteral}{"{}SELECT `tablerealname` FROM `usertables` WHERE `tabledisplayname` = @tablename"{}},}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00353}00353                 \textcolor{keyword}{new} \{ tablename = displayName \}).tablerealname;}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00354}00354         \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00355}00355 }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00356}00356         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00357}00357     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00358}00358     }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00359}\mbox{\hyperlink{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}{00359}}     \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_database_manager_a8d557d1f7900fe8dadd75ff53662bfdc}{GetColumnRealName}}(\textcolor{keywordtype}{string} tableRealName, \textcolor{keywordtype}{string} displayName)}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00360}00360     \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00361}00361         \textcolor{keywordflow}{if}(\_isTableExists(tableRealName))}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00362}00362         \{}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00363}00363             \textcolor{keywordflow}{return} \_connection.QueryFirstOrDefault(}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00364}00364                 \textcolor{stringliteral}{"{}SELECT `realname` FROM `usertablescolumns` WHERE `tablerealname` = @tablename AND `displayname` = @columnname"{}},}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00365}00365                 \textcolor{keyword}{new} \{ tablename = tableRealName, columnname = displayName \}).realname;}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00366}00366         \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00367}00367 }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00368}00368         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00369}00369     \}}
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00370}00370 }
+\DoxyCodeLine{\Hypertarget{_database_manager_8cs_source_l00371}00371 \}}
 
 \end{DoxyCode}
