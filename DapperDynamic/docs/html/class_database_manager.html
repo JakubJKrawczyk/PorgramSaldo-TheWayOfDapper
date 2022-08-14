@@ -74,69 +74,536 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa8859e8d49aa4ffd71dde3392de01460"><td class="memItemLeft" align="right" valign="top"><a id="aa8859e8d49aa4ffd71dde3392de01460" name="aa8859e8d49aa4ffd71dde3392de01460"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>HandleInTransaction</b> (Func&lt; bool &gt; statement, bool reopenConnection=true)</td></tr>
+<tr class="memitem:aa8859e8d49aa4ffd71dde3392de01460"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#aa8859e8d49aa4ffd71dde3392de01460">HandleInTransaction</a> (Func&lt; bool &gt; statement, bool reopenConnection=true)</td></tr>
 <tr class="separator:aa8859e8d49aa4ffd71dde3392de01460"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d0b9e930611e30297badce851f83ebf"><td class="memItemLeft" align="right" valign="top"><a id="a9d0b9e930611e30297badce851f83ebf" name="a9d0b9e930611e30297badce851f83ebf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreateTable</b> (string name, bool dropIfExists=false)</td></tr>
+<tr class="memitem:a9d0b9e930611e30297badce851f83ebf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a9d0b9e930611e30297badce851f83ebf">CreateTable</a> (string name, bool dropIfExists=false)</td></tr>
 <tr class="separator:a9d0b9e930611e30297badce851f83ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b02b4565aa07242d2c7ba039506268e"><td class="memItemLeft" align="right" valign="top"><a id="a4b02b4565aa07242d2c7ba039506268e" name="a4b02b4565aa07242d2c7ba039506268e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteTable</b> (string name)</td></tr>
+<tr class="memitem:a4b02b4565aa07242d2c7ba039506268e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a4b02b4565aa07242d2c7ba039506268e">DeleteTable</a> (string name)</td></tr>
 <tr class="separator:a4b02b4565aa07242d2c7ba039506268e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec973165384a5f96ef3982e917b5f010"><td class="memItemLeft" align="right" valign="top"><a id="aec973165384a5f96ef3982e917b5f010" name="aec973165384a5f96ef3982e917b5f010"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsTableExists</b> (string name, string? schema=null)</td></tr>
+<tr class="memitem:aec973165384a5f96ef3982e917b5f010"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#aec973165384a5f96ef3982e917b5f010">IsTableExists</a> (string name, string? schema=null)</td></tr>
 <tr class="separator:aec973165384a5f96ef3982e917b5f010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99d08a6a9ca5379636f73f228b7ef36d"><td class="memItemLeft" align="right" valign="top"><a id="a99d08a6a9ca5379636f73f228b7ef36d" name="a99d08a6a9ca5379636f73f228b7ef36d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreateColumn</b> (string tablename, string colname, Type type, string color=&quot;#000000&quot;)</td></tr>
+<tr class="memitem:a99d08a6a9ca5379636f73f228b7ef36d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a99d08a6a9ca5379636f73f228b7ef36d">CreateColumn</a> (string tablename, string colname, Type type, string color=&quot;#000000&quot;)</td></tr>
 <tr class="separator:a99d08a6a9ca5379636f73f228b7ef36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cd9089863381c929b8ccaf070514c29"><td class="memItemLeft" align="right" valign="top"><a id="a4cd9089863381c929b8ccaf070514c29" name="a4cd9089863381c929b8ccaf070514c29"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteColumn</b> (string tabledisplayname, string colname)</td></tr>
+<tr class="memitem:a4cd9089863381c929b8ccaf070514c29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a4cd9089863381c929b8ccaf070514c29">DeleteColumn</a> (string tabledisplayname, string colname)</td></tr>
 <tr class="separator:a4cd9089863381c929b8ccaf070514c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fcf5281ea1e7ad8473cc0d94ffb2e02"><td class="memItemLeft" align="right" valign="top"><a id="a6fcf5281ea1e7ad8473cc0d94ffb2e02" name="a6fcf5281ea1e7ad8473cc0d94ffb2e02"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Insert</b> (<a class="el" href="class_insert_query.html">InsertQuery</a> insertQuery)</td></tr>
+<tr class="memitem:a6fcf5281ea1e7ad8473cc0d94ffb2e02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a6fcf5281ea1e7ad8473cc0d94ffb2e02">Insert</a> (<a class="el" href="class_insert_query.html">InsertQuery</a> insertQuery)</td></tr>
 <tr class="separator:a6fcf5281ea1e7ad8473cc0d94ffb2e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc36e1380d93eff020f121e893e1c16"><td class="memItemLeft" align="right" valign="top"><a id="aafc36e1380d93eff020f121e893e1c16" name="aafc36e1380d93eff020f121e893e1c16"></a>
-ICollection&lt; <a class="el" href="class_table.html">Table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShowTables</b> ()</td></tr>
+<tr class="memitem:aafc36e1380d93eff020f121e893e1c16"><td class="memItemLeft" align="right" valign="top">ICollection&lt; <a class="el" href="class_table.html">Table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#aafc36e1380d93eff020f121e893e1c16">ShowTables</a> ()</td></tr>
 <tr class="separator:aafc36e1380d93eff020f121e893e1c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f06910e55f41b70e1067a5cfb347918"><td class="memItemLeft" align="right" valign="top"><a id="a9f06910e55f41b70e1067a5cfb347918" name="a9f06910e55f41b70e1067a5cfb347918"></a>
-ICollection&lt; <a class="el" href="class_column.html">Column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShowColumns</b> (string tablename)</td></tr>
+<tr class="memitem:a9f06910e55f41b70e1067a5cfb347918"><td class="memItemLeft" align="right" valign="top">ICollection&lt; <a class="el" href="class_column.html">Column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a9f06910e55f41b70e1067a5cfb347918">ShowColumns</a> (string tablename)</td></tr>
 <tr class="separator:a9f06910e55f41b70e1067a5cfb347918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaad709633955bc08410fbb32cbac83b0"><td class="memItemLeft" align="right" valign="top"><a id="aaad709633955bc08410fbb32cbac83b0" name="aaad709633955bc08410fbb32cbac83b0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ProcessLogin</b> (string login, string password)</td></tr>
+<tr class="memitem:aaad709633955bc08410fbb32cbac83b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#aaad709633955bc08410fbb32cbac83b0">ProcessLogin</a> (string login, string password)</td></tr>
 <tr class="separator:aaad709633955bc08410fbb32cbac83b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83bb6347c1659396ab8831efe8fbf526"><td class="memItemLeft" align="right" valign="top"><a id="a83bb6347c1659396ab8831efe8fbf526" name="a83bb6347c1659396ab8831efe8fbf526"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Select</b> (<a class="el" href="class_select_query.html">SelectQuery</a> query)</td></tr>
-<tr class="separator:a83bb6347c1659396ab8831efe8fbf526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6962db525011a098305fcd1219e8291d"><td class="memItemLeft" align="right" valign="top"><a id="a6962db525011a098305fcd1219e8291d" name="a6962db525011a098305fcd1219e8291d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> (<a class="el" href="class_update_query.html">UpdateQuery</a> query)</td></tr>
+<tr class="memitem:ab4271e90e9d07c0314cfd46320ba792c"><td class="memItemLeft" align="right" valign="top">IEnumerable&lt; dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#ab4271e90e9d07c0314cfd46320ba792c">Select</a> (<a class="el" href="class_select_query.html">SelectQuery</a> query)</td></tr>
+<tr class="separator:ab4271e90e9d07c0314cfd46320ba792c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6962db525011a098305fcd1219e8291d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a6962db525011a098305fcd1219e8291d">Update</a> (<a class="el" href="class_update_query.html">UpdateQuery</a> query)</td></tr>
 <tr class="separator:a6962db525011a098305fcd1219e8291d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd151d219088fbb155376e3423ef55e"><td class="memItemLeft" align="right" valign="top"><a id="a4dd151d219088fbb155376e3423ef55e" name="a4dd151d219088fbb155376e3423ef55e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Delete</b> (<a class="el" href="class_delete_query.html">DeleteQuery</a> query)</td></tr>
+<tr class="memitem:a4dd151d219088fbb155376e3423ef55e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a4dd151d219088fbb155376e3423ef55e">Delete</a> (<a class="el" href="class_delete_query.html">DeleteQuery</a> query)</td></tr>
 <tr class="separator:a4dd151d219088fbb155376e3423ef55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae195cb2c1c3422636a7bf44d52fc6ee0"><td class="memItemLeft" align="right" valign="top"><a id="ae195cb2c1c3422636a7bf44d52fc6ee0" name="ae195cb2c1c3422636a7bf44d52fc6ee0"></a>
-MySqlConnection&#160;</td><td class="memItemRight" valign="bottom"><b>GetConnection</b> ()</td></tr>
+<tr class="memitem:ae195cb2c1c3422636a7bf44d52fc6ee0"><td class="memItemLeft" align="right" valign="top">MySqlConnection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#ae195cb2c1c3422636a7bf44d52fc6ee0">GetConnection</a> ()</td></tr>
 <tr class="separator:ae195cb2c1c3422636a7bf44d52fc6ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2209ea05f8592737d524660d6aa5c8cb"><td class="memItemLeft" align="right" valign="top"><a id="a2209ea05f8592737d524660d6aa5c8cb" name="a2209ea05f8592737d524660d6aa5c8cb"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>GetRealTableName</b> (string displayName)</td></tr>
+<tr class="memitem:a2209ea05f8592737d524660d6aa5c8cb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a2209ea05f8592737d524660d6aa5c8cb">GetRealTableName</a> (string displayName)</td></tr>
 <tr class="separator:a2209ea05f8592737d524660d6aa5c8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d557d1f7900fe8dadd75ff53662bfdc"><td class="memItemLeft" align="right" valign="top"><a id="a8d557d1f7900fe8dadd75ff53662bfdc" name="a8d557d1f7900fe8dadd75ff53662bfdc"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>GetColumnRealName</b> (string tableRealName, string displayName)</td></tr>
+<tr class="memitem:a8d557d1f7900fe8dadd75ff53662bfdc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a8d557d1f7900fe8dadd75ff53662bfdc">GetColumnRealName</a> (string tableRealName, string displayName)</td></tr>
 <tr class="separator:a8d557d1f7900fe8dadd75ff53662bfdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1105d82a53d0de881cfd987835147845"><td class="memItemLeft" align="right" valign="top"><a id="a1105d82a53d0de881cfd987835147845" name="a1105d82a53d0de881cfd987835147845"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (string user=&quot;root&quot;, string password=&quot;&quot;, string database=&quot;example&quot;, string host=&quot;localhost&quot;, string port=&quot;3306&quot;)</td></tr>
+<tr class="memitem:a1105d82a53d0de881cfd987835147845"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a1105d82a53d0de881cfd987835147845">Initialize</a> (string user=&quot;root&quot;, string password=&quot;&quot;, string database=&quot;example&quot;, string host=&quot;localhost&quot;, string port=&quot;3306&quot;)</td></tr>
 <tr class="separator:a1105d82a53d0de881cfd987835147845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a93c76fd25f0ab845eaad95b5e7cbc883"><td class="memItemLeft" align="right" valign="top"><a id="a93c76fd25f0ab845eaad95b5e7cbc883" name="a93c76fd25f0ab845eaad95b5e7cbc883"></a>
-static ? <a class="el" href="class_database_manager.html">DatabaseManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b><code> [get]</code></td></tr>
+<tr class="memitem:a93c76fd25f0ab845eaad95b5e7cbc883"><td class="memItemLeft" align="right" valign="top">static ? <a class="el" href="class_database_manager.html">DatabaseManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_database_manager.html#a93c76fd25f0ab845eaad95b5e7cbc883">Instance</a><code> [get]</code></td></tr>
 <tr class="separator:a93c76fd25f0ab845eaad95b5e7cbc883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00010">10</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a99d08a6a9ca5379636f73f228b7ef36d" name="a99d08a6a9ca5379636f73f228b7ef36d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d08a6a9ca5379636f73f228b7ef36d">&#9670;&nbsp;</a></span>CreateColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.CreateColumn </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tablename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>colname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>color</em> = <code>&quot;#000000&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00135">135</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9d0b9e930611e30297badce851f83ebf" name="a9d0b9e930611e30297badce851f83ebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0b9e930611e30297badce851f83ebf">&#9670;&nbsp;</a></span>CreateTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.CreateTable </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dropIfExists</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00079">79</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4dd151d219088fbb155376e3423ef55e" name="a4dd151d219088fbb155376e3423ef55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd151d219088fbb155376e3423ef55e">&#9670;&nbsp;</a></span>Delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.Delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_delete_query.html">DeleteQuery</a>&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00337">337</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4cd9089863381c929b8ccaf070514c29" name="a4cd9089863381c929b8ccaf070514c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cd9089863381c929b8ccaf070514c29">&#9670;&nbsp;</a></span>DeleteColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.DeleteColumn </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tabledisplayname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>colname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00165">165</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4b02b4565aa07242d2c7ba039506268e" name="a4b02b4565aa07242d2c7ba039506268e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b02b4565aa07242d2c7ba039506268e">&#9670;&nbsp;</a></span>DeleteTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.DeleteTable </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00097">97</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a8d557d1f7900fe8dadd75ff53662bfdc" name="a8d557d1f7900fe8dadd75ff53662bfdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d557d1f7900fe8dadd75ff53662bfdc">&#9670;&nbsp;</a></span>GetColumnRealName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DatabaseManager.GetColumnRealName </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tableRealName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>displayName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00359">359</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae195cb2c1c3422636a7bf44d52fc6ee0" name="ae195cb2c1c3422636a7bf44d52fc6ee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae195cb2c1c3422636a7bf44d52fc6ee0">&#9670;&nbsp;</a></span>GetConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MySqlConnection DatabaseManager.GetConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00342">342</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a2209ea05f8592737d524660d6aa5c8cb" name="a2209ea05f8592737d524660d6aa5c8cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2209ea05f8592737d524660d6aa5c8cb">&#9670;&nbsp;</a></span>GetRealTableName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DatabaseManager.GetRealTableName </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>displayName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00347">347</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa8859e8d49aa4ffd71dde3392de01460" name="aa8859e8d49aa4ffd71dde3392de01460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8859e8d49aa4ffd71dde3392de01460">&#9670;&nbsp;</a></span>HandleInTransaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.HandleInTransaction </td>
+          <td>(</td>
+          <td class="paramtype">Func&lt; bool &gt;&#160;</td>
+          <td class="paramname"><em>statement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reopenConnection</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00039">39</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a1105d82a53d0de881cfd987835147845" name="a1105d82a53d0de881cfd987835147845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1105d82a53d0de881cfd987835147845">&#9670;&nbsp;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void DatabaseManager.Initialize </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>user</em> = <code>&quot;root&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>database</em> = <code>&quot;example&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>host</em> = <code>&quot;localhost&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>port</em> = <code>&quot;3306&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00069">69</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6fcf5281ea1e7ad8473cc0d94ffb2e02" name="a6fcf5281ea1e7ad8473cc0d94ffb2e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fcf5281ea1e7ad8473cc0d94ffb2e02">&#9670;&nbsp;</a></span>Insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.Insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_insert_query.html">InsertQuery</a>&#160;</td>
+          <td class="paramname"><em>insertQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00185">185</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="aec973165384a5f96ef3982e917b5f010" name="aec973165384a5f96ef3982e917b5f010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec973165384a5f96ef3982e917b5f010">&#9670;&nbsp;</a></span>IsTableExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.IsTableExists </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string?&#160;</td>
+          <td class="paramname"><em>schema</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00116">116</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="aaad709633955bc08410fbb32cbac83b0" name="aaad709633955bc08410fbb32cbac83b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad709633955bc08410fbb32cbac83b0">&#9670;&nbsp;</a></span>ProcessLogin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.ProcessLogin </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00267">267</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab4271e90e9d07c0314cfd46320ba792c" name="ab4271e90e9d07c0314cfd46320ba792c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4271e90e9d07c0314cfd46320ba792c">&#9670;&nbsp;</a></span>Select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt; dynamic &gt; DatabaseManager.Select </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_select_query.html">SelectQuery</a>&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00285">285</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9f06910e55f41b70e1067a5cfb347918" name="a9f06910e55f41b70e1067a5cfb347918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f06910e55f41b70e1067a5cfb347918">&#9670;&nbsp;</a></span>ShowColumns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ICollection&lt; <a class="el" href="class_column.html">Column</a> &gt; DatabaseManager.ShowColumns </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>tablename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00239">239</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="aafc36e1380d93eff020f121e893e1c16" name="aafc36e1380d93eff020f121e893e1c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc36e1380d93eff020f121e893e1c16">&#9670;&nbsp;</a></span>ShowTables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ICollection&lt; <a class="el" href="class_table.html">Table</a> &gt; DatabaseManager.ShowTables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00215">215</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6962db525011a098305fcd1219e8291d" name="a6962db525011a098305fcd1219e8291d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6962db525011a098305fcd1219e8291d">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DatabaseManager.Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_update_query.html">UpdateQuery</a>&#160;</td>
+          <td class="paramname"><em>query</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00331">331</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a93c76fd25f0ab845eaad95b5e7cbc883" name="a93c76fd25f0ab845eaad95b5e7cbc883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c76fd25f0ab845eaad95b5e7cbc883">&#9670;&nbsp;</a></span>Instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="class_database_manager.html">DatabaseManager</a> DatabaseManager.Instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_database_manager_8cs_source.html#l00037">37</a> of file <a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>DatabaseManager.cs</li>
+<li><a class="el" href="_database_manager_8cs_source.html">DatabaseManager.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

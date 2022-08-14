@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 72.072075
+%%BoundingBox: 0 0 500 60.060059
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 6.937500 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 8.325000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
 /rows 2 def
-/cols 5 def
+/cols 6 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -175,6 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (IStatement) cw
 (DeleteQuery) cw
+(FromStatement) cw
 (InsertQuery) cw
 (SelectQuery) cw
 (UpdateQuery) cw
@@ -190,19 +191,20 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (IStatement) 2.000000 1.000000 box
+ (IStatement) 2.500000 1.000000 box
  (DeleteQuery) 0.000000 0.000000 box
- (InsertQuery) 1.000000 0.000000 box
- (SelectQuery) 2.000000 0.000000 box
- (UpdateQuery) 3.000000 0.000000 box
- (WhereStatement) 4.000000 0.000000 box
+ (FromStatement) 1.000000 0.000000 box
+ (InsertQuery) 2.000000 0.000000 box
+ (SelectQuery) 3.000000 0.000000 box
+ (UpdateQuery) 4.000000 0.000000 box
+ (WhereStatement) 5.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 2.000000 0.250000 out
+1 2.500000 0.250000 out
 solid
-0.000000 4.000000 1.000000 conn
+0.000000 5.000000 1.000000 conn
 solid
 0 0.000000 0.750000 in
 solid
@@ -213,3 +215,5 @@ solid
 0 3.000000 0.750000 in
 solid
 0 4.000000 0.750000 in
+solid
+0 5.000000 0.750000 in

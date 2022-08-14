@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace DapperDynamicTests;
 
-public class StatementsTest
+public class WhereStatementsTest
 {
     [Test]
     public void WhereStatementSimple()
@@ -53,7 +53,7 @@ public class StatementsTest
         WhereStatement whereOuter = new WhereStatement();
         whereOuter.Where("id", WhereStatement.Operator.Equals, 1);
         WhereStatement whereInner = new WhereStatement();
-        whereInner.Where("name", WhereStatement.Operator.Equals, "test");
+        whereInner.Where("name", WhereStatement.Operator.Equals, (object)"test");
         whereInner.AndWhere("count", WhereStatement.Operator.GreaterThan, 100);
         whereOuter.OrWhere(whereInner);
         var tts = ((IStatement)whereOuter).GetNamesToTranslate();
@@ -66,13 +66,13 @@ public class StatementsTest
             {"name", "col2"},
             {"count", "col3"}
         });
-        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 or (col2 = @name_0 and col3 > @count_0)"));
+        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 or (col2 = @name_0_0 and col3 > @count_0_0)"));
         Assert.True(sql.Item2.ContainsKey("id_0"));
-        Assert.True(sql.Item2.ContainsKey("name_0"));
-        Assert.True(sql.Item2.ContainsKey("count_0"));
+        Assert.True(sql.Item2.ContainsKey("name_0_0"));
+        Assert.True(sql.Item2.ContainsKey("count_0_0"));
         Assert.That(sql.Item2["id_0"], Is.EqualTo(1));
-        Assert.That(sql.Item2["name_0"], Is.EqualTo("test"));
-        Assert.That(sql.Item2["count_0"], Is.EqualTo(100));
+        Assert.That(sql.Item2["name_0_0"], Is.EqualTo("test"));
+        Assert.That(sql.Item2["count_0_0"], Is.EqualTo(100));
     }
 
     [Test]
@@ -87,7 +87,7 @@ public class StatementsTest
             {"name", "col2"}
         });
         Assert.That(statement.Item1, Is.EqualTo("WHERE col1 = @id_0 and col2 is null"));
-        Assert.True(statement.Item2.ContainsKey("id"));
+        Assert.True(statement.Item2.ContainsKey("id_0"));
         Assert.That(statement.Item2["id_0"], Is.EqualTo(1));
     }
 
@@ -111,7 +111,7 @@ public class StatementsTest
             {"id", "col1"},
             {"q2", "tab1"}
         });
-        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 and q1.name != @q1_0 or tab1.count > @q2_0"));
+        Assert.That(sql.Item1, Is.EqualTo("WHERE col1 = @id_0 and q1.name != @name_0 or tab1.count > @count_0"));
     }
 
     [Test]
@@ -128,5 +128,38 @@ public class StatementsTest
         Assert.That(statement.Item1, Is.EqualTo("WHERE col1 = @id_0 and col2 is not null"));
         Assert.True(statement.Item2.ContainsKey("id_0"));
         Assert.That(statement.Item2["id_0"], Is.EqualTo(1));
+    }
+
+    [Test]
+    public void WhereStatementCompareColumns()
+    {
+        WhereStatement where = new WhereStatement();
+        where.Where("ready_date", WhereStatement.Operator.GreaterThan, "start_date");
+        var statement = ((IStatement)where).GetStatement(new Dictionary<string, string>()
+        {
+            {"ready_date", "col1"},
+            {"start_date", "col2"}
+        });
+        Assert.That(statement.Item1, Is.EqualTo("WHERE col1 > col2"));
+    }
+
+    [Test]
+    public void WhereStatementColumnsFormDifferentTables()
+    {
+        WhereStatement where = new WhereStatement();
+        where.Where("id", "order", WhereStatement.Operator.Equals, "id", "order_item");
+        var names = ((IStatement)where).GetNamesToTranslate();
+        Assert.IsTrue(names.ContainsKey("order.id"));
+        Assert.IsTrue(names.ContainsKey("order_item.id"));
+        Assert.IsTrue(names.ContainsKey("order"));
+        Assert.IsTrue(names.ContainsKey("order_item"));
+        Tuple<string, IDictionary<string, object>> sql = ((IStatement)where).GetStatement(new Dictionary<string, string>()
+        {
+            {"order.id", "col1"},
+            {"order_item.id", "col2"},
+            {"order", "tab1"},
+            {"order_item", "tab2"}
+        });
+        Assert.That(sql.Item1, Is.EqualTo("WHERE tab1.col1 = tab2.col2"));
     }
 }
