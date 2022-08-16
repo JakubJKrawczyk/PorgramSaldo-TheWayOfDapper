@@ -7,11 +7,29 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Additional windows\Columns.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Additional windows\MyAccount.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Additional windows\Users.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Okna Główne\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Additional windows\Columns.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Additional windows\MyAccount.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Additional windows\Users.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
