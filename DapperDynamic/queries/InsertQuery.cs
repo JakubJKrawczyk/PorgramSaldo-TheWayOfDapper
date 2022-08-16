@@ -22,7 +22,7 @@ public class InsertQuery : IStatement
         throw new NotImplementedException();
     }
 
-    Tuple<string, IDictionary<string, object>> IStatement.GetStatement(IDictionary<string, string> dictionary)
+    Tuple<string, IDictionary<string, object>> IStatement.GetStatement(IDictionary<string, string> dictionary, bool topLevel)
     {
         throw new NotImplementedException();
     }
