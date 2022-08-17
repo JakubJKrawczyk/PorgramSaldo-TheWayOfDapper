@@ -11,4 +11,19 @@ public class UpdateQuery : IStatement
     {
         throw new NotImplementedException();
     }
+
+    public UpdateQuery(string table)
+    {
+        
+    }
+    
+    public UpdateQuery Set(string columnDisplayName, object value)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public UpdateQuery Where(WhereStatement where)
+    {
+        throw new NotImplementedException();
+    }
 }

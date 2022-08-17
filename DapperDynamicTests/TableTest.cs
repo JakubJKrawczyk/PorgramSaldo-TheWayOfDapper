@@ -113,4 +113,44 @@ public class TableTests
         Assert.That(result[1].name, Is.EqualTo("Henry"));
         Assert.That(result[1].age, Is.EqualTo(40));
     }
+
+    [Test]
+    public void UpdateTest()
+    {
+        _db.CreateTable("testupdate", true);
+        _db.CreateColumn("testupdate", "name", typeof(string), "00FF00");
+        _db.CreateColumn("testupdate", "age", typeof(int), "FF0000");
+        _db.Insert(new InsertQuery("testupdate").Into("name", "John").Into("age", 20));
+        _db.Insert(new InsertQuery("testupdate").Into("name", "Henry").Into("age", 40));
+        var updateQuery = new UpdateQuery("testupdate").Set("age", 30)
+            .Where(new WhereStatement().Where("name", WhereStatement.Operator.Equals, (object)"John"));
+        _db.Update(updateQuery);
+        var select = _db.Select(
+            new SelectQuery()
+                    .From(new FromStatement("testupdate"))
+                    .Where(new WhereStatement().Where("name", WhereStatement.Operator.Equals, "John"))
+                    .Select("age", true, "age")
+            );
+        Assert.That(select.ToArray()[0].age, Is.EqualTo(30));
+    }
+    
+    [Test]
+    public void DeleteTest()
+    {
+        _db.CreateTable("testdelete", true);
+        _db.CreateColumn("testdelete", "name", typeof(string), "00FF00");
+        _db.CreateColumn("testdelete", "age", typeof(int), "FF0000");
+        _db.Insert(new InsertQuery("testdelete").Into("name", "John").Into("age", 20));
+        _db.Insert(new InsertQuery("testdelete").Into("name", "Henry").Into("age", 40));
+        var deleteQuery = new DeleteQuery("testdelete")
+            .Where(new WhereStatement().Where("name", WhereStatement.Operator.Equals, "John"));
+        _db.Delete(deleteQuery);
+        var select = _db.Select(
+            new SelectQuery()
+                .From(new FromStatement("testupdate"))
+                .Where(new WhereStatement().Where("name", WhereStatement.Operator.Equals, "John"))
+                .Select("age", true, "age")
+        );
+        Assert.That(select.ToArray()[0].age, Is.EqualTo(30));
+    }
 }
