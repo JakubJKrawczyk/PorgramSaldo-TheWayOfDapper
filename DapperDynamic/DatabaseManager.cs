@@ -1,11 +1,13 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Globalization;
 using Dapper;
 using DapperDynamic.queries;
 using DapperDynamic.structures;
 using MySql.Data.MySqlClient;
 
-namespace DapperDynamic;
+namespace DapperDynamic { 
+
 
 public class DatabaseManager
 {
@@ -34,7 +36,7 @@ public class DatabaseManager
         _connection = new MySqlConnection($"server={host};port={port};user={user};password={password};database={database}");
     }
     
-    public static DatabaseManager? Instance => _instance;
+    public static DatabaseManager? DBManagerInstance => _instance;
 
     public bool HandleInTransaction(Func<bool> statement, bool reopenConnection = true)
     {
@@ -56,7 +58,7 @@ public class DatabaseManager
         catch (Exception)
         {
             transaction.Rollback();
-            throw;
+            throw new Exception("Transaction Error");
         }
         finally
         {
@@ -263,24 +265,49 @@ public class DatabaseManager
         return t.Columns;
     }
 
-    [Obsolete("Handle it in your own code")]
     public bool ProcessLogin(string login, string password)
     {
-        return HandleInTransaction(() =>
-        {
-            var user = _connection.QueryAsync($"SELECT login, passwd FROM users where login = '{login}'").Result.FirstOrDefault();
-            if(user != null)
+            return HandleInTransaction(() =>
             {
-                
-                if (user.passwd == password) return true;
-                else return false;
-            }
-            else
-            {
-                return false;
-            }
-        });
-    }
+                //WhereStatement where = new WhereStatement();
+                //var userSelectQuery = new SelectQuery().Select("login", true, "login").Select("password", true, "password").From(new FromStatement("users")).Where(where.Where("login", WhereStatement.Operator.Equals, login));
+                //var result = DBManagerInstance.Select(userSelectQuery).ToArray();
+
+                //if (result.Length > 0)
+                //{
+                //    if(result[0].password == password)
+                //    {
+                //        return true;
+                //    }else return false;
+                //}
+                //else return false;
+
+                string querry = "SELECT login, passwd FROM users where login = @login";
+                var cmd = _connection.CreateCommand();
+                cmd.CommandText = querry;
+                cmd.Parameters.AddWithValue("@login", login);
+               var Result = cmd.ExecuteNonQuery();
+                if (Result != 0)
+                {
+
+                   using(var reader = cmd.ExecuteReader())
+                    {
+                        reader.Read();
+                        var login = reader.GetString(0);
+                        var passwordToCheck = reader.GetString(1);
+                        if (passwordToCheck == password)
+                        {
+                            return true;
+                        }
+                        else return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            });
+        }
 
     public IEnumerable<dynamic> Select(SelectQuery query)
     {
@@ -367,5 +394,7 @@ public class DatabaseManager
 
         return null;
     }
+
+}
 
 }

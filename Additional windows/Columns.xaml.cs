@@ -23,5 +23,23 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows
         {
             InitializeComponent();
         }
+
+      
+
+        private void Window_Closed(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void DellColumn_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddColumn_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -12,25 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProgramSaldo_TheWayOfDapper.Additional_windows
+namespace ProgramSaldo_TheWayOfDapper.Additional_windows.Colums___Additional_Windows
 {
     /// <summary>
-    /// Logika interakcji dla klasy MyAccount.xaml
+    /// Logika interakcji dla klasy AddColumn.xaml
     /// </summary>
-    public partial class MyAccount : Window
+    public partial class AddColumn : Window
     {
-        public MyAccount()
+        public AddColumn()
         {
             InitializeComponent();
-            login.Text = MainWindow._login;
-
-        }
-
-      
-        private void Window_Closed(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
     }
 }

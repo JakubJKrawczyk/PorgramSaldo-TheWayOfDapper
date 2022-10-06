@@ -23,7 +23,7 @@ public class SelectQueryTest
         Assert.IsTrue(statement.Item2.ContainsKey("Id_0"));
         Assert.That(statement.Item2["Id_0"], Is.EqualTo(1));
     }
-    
+
     [Test]
     public void SelectWithColumnAliases()
     {

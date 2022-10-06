@@ -23,7 +23,7 @@
 
         <Canvas Background="#FFE8E8E8" Visibility="Hidden" Name="MenuButtons" Grid.Column="0" Grid.Row="1" Height='{Binding ElementName=MWindow, Path=Height}' Width="300" VerticalAlignment="Top" HorizontalAlignment="Left">
             
-            <Button Cursor="Hand" Visibility="Hidden" Name="Button1" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="20" BorderBrush="#FF87BC5E" Foreground="#FF969696">
+            <Button Cursor="Hand" Visibility="Hidden" Name="Button1" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="20" BorderBrush="#FF87BC5E" Foreground="#FF969696" Click="Button1_Click">
                 <Button.Effect>
 
                         <DropShadowEffect ShadowDepth="10" Direction="300" BlurRadius="20" Color="#FFDADADA" RenderingBias="Performance"/>
@@ -31,7 +31,7 @@
                 </Button.Effect> 
                 Moje Konto
             </Button>
-            <Button Cursor="Hand" Visibility="Hidden" Name="Button2" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="80" BorderBrush="#FF87BC5E" Foreground="#FF969696">
+            <Button Cursor="Hand" Visibility="Hidden" Name="Button2" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="80" BorderBrush="#FF87BC5E" Foreground="#FF969696" Click="Button2_Click">
                 <Button.Effect>
 
                     <DropShadowEffect ShadowDepth="10" Direction="300" BlurRadius="20" Color="#FFDADADA" RenderingBias="Performance"/>
@@ -39,7 +39,7 @@
                 </Button.Effect>
                 Kolumny
             </Button>
-            <Button Cursor="Hand"  Visibility="Hidden" Name="Button3" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="140" BorderBrush="#FF87BC5E" Foreground="#FF969696">
+            <Button Cursor="Hand"  Visibility="Hidden" Name="Button3" VerticalContentAlignment="Center" Width="200" Height="40" FontSize="24" Background="White" Canvas.Left="50" Canvas.Top="140" BorderBrush="#FF87BC5E" Foreground="#FF969696" Click="Button3_Click">
                 <Button.Effect>
 
                     <DropShadowEffect ShadowDepth="10" Direction="300" BlurRadius="20" Color="#FFDADADA" RenderingBias="Performance"/>

@@ -96,7 +96,7 @@ public class WhereStatementsTest
     {
         WhereStatement where = new WhereStatement();
         where.Where("id", WhereStatement.Operator.Equals, 1);
-        where.AndWhere("name", WhereStatement.Operator.NotEquals, "test", 
+        where.AndWhere("name", WhereStatement.Operator.NotEquals, "test",
             "q1", true, true);
         where.OrWhere("count", WhereStatement.Operator.GreaterThan, 100,
                     "q2", true);

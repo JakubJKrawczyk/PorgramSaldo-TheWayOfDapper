@@ -1,0 +1,67 @@
+﻿<Window x:Class="ProgramSaldo_TheWayOfDapper.Additional_windows.Users___Additional_Windows.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgramSaldo_TheWayOfDapper.Additional_windows.Users___Additional_Windows"
+        mc:Ignorable="d"
+        Title="AddUser" Height="450" Width="400" ResizeMode="NoResize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+
+        <!-- Row 0 Col 0 - User Data-->
+
+        <TabControl>
+            <TabItem Header="Dane Użytkownika">
+                <Canvas>
+                    <TextBlock Canvas.Left="70" Canvas.Top="43" FontSize="16" FontFamily="Roboto">Login:</TextBlock>
+                    <TextBox Name="LoginTextBox" Width="260" Height="30" Canvas.Left="67" Canvas.Top="62" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                   
+                    <TextBlock Canvas.Left="70" Canvas.Top="93" FontSize="16" FontFamily="Roboto">Hasło:</TextBlock>
+                    <TextBox Visibility="Hidden" Name="UnmaskPasswordBox" Width="230" Height="30" Canvas.Left="67" Canvas.Top="112" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <PasswordBox Visibility="Visible" x:Name="PasswordBox" Width="230" Height="30" Canvas.Left="67" Canvas.Top="112" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    
+                    <TextBlock Canvas.Left="70" Canvas.Top="143" FontSize="16" FontFamily="Roboto">Powtórz Hasło:</TextBlock>
+                    <TextBox Visibility="Hidden" Name="UnmaskRepeatPasswordBox" Width="260" Height="30" Canvas.Left="67" Canvas.Top="162" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <PasswordBox Visibility="Visible" Name="RepeatPasswordBox" Width="260" Height="30" Canvas.Left="67" Canvas.Top="162" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <TextBlock Canvas.Left="70" Canvas.Top="193" FontSize="16" FontFamily="Roboto">Imię:</TextBlock>
+                    <TextBox Name="FirstNameTextBox" Width="260" Height="30" Canvas.Left="67" Canvas.Top="212" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    
+                    <TextBlock Canvas.Left="70" Canvas.Top="243" FontSize="16" FontFamily="Roboto">Nazwisko:</TextBlock>
+                    <TextBox Name="LastNameTextBox" Width="260" Height="30" Canvas.Left="67" Canvas.Top="262" BorderBrush="#aeaeae" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                   
+                    <Button  Name="ShowPasswordBtn" Background="White" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="30" Height="30" Canvas.Left="297" Canvas.Top="112" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ChangePasswordVisibility"></Button>
+                </Canvas>
+            </TabItem>
+            <TabItem Header="Grupy użytkownika">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <ListBox Name="NotAddedGroups" Grid.Row="1" Grid.Column="0"></ListBox>
+                    <ListBox Name="AddedGroups" Grid.Row="1" Grid.Column="1"></ListBox>
+
+                    <Button Click="AddPriviligeFunc" Name="AddPrivilage" Grid.Row="0" Grid.Column="0" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">Dodaj →</Button>
+
+                    <Button Click="DeletePriviligeFunc" Name="DeletePrivilage" Grid.Row="0" Grid.Column="1" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">← Usuń</Button>
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Button Cursor="Hand" FontSize="20" BorderBrush="#FFCACACA" Background="#87bc5e" Width="200" Height="40" Foreground="White" Grid.Row="1" >Dodaj Użytkownika</Button>
+    </Grid>
+</Window>

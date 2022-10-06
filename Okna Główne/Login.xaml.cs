@@ -36,6 +36,8 @@ namespace ProgramSaldo_TheWayOfDapper.Okna_Główne
             if(_controller.Login(TextBoxLogin, TextBoxPassword))
             {
                 MainWindow.IsLogged = true;
+                MainWindow._login = TextBoxLogin.Text;
+                MainWindow._password = TextBoxPassword.Text;
                 MainWindow w = new MainWindow();
                 w.Show();
                 this.Hide();
@@ -53,6 +55,40 @@ namespace ProgramSaldo_TheWayOfDapper.Okna_Główne
                 return;
             }
             else App.Current.Shutdown();
+        }
+
+        private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(TextBoxLogin.Text == "Login") TextBoxLogin.Text = "";
+        }
+
+        private void TextBoxLogin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(TextBoxLogin.Text == "")
+            {
+                TextBoxLogin.Text = "Login";
+            }
+        }
+
+        private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxPassword.Text == "Password") TextBoxPassword.Text = "";
+        }
+
+        private void TextBoxPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxPassword.Text == "")
+            {
+                TextBoxPassword.Text = "Password";
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                LoginIn(this, new RoutedEventArgs()) ;
+            }
         }
     }
 }

@@ -10,7 +10,13 @@
     <Compile Update="Additional windows\Columns.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Additional windows\Colums - Additional Windows\AddColumn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Additional windows\MyAccount.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Additional windows\Users - Additional Windows\AddUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Additional windows\Users.xaml.cs">
@@ -24,7 +30,13 @@
     <Page Update="Additional windows\Columns.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Additional windows\Colums - Additional Windows\AddColumn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Additional windows\MyAccount.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Additional windows\Users - Additional Windows\AddUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Additional windows\Users.xaml">

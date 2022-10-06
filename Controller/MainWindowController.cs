@@ -14,11 +14,11 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
         {
             if (w.IsSideMenuOpen)
             {
-                
+
                 w.SideMenu.Width = new System.Windows.GridLength(0);
 
                 // Arrow Transformation
-                    
+
                 RotateTransform rotate = new RotateTransform(0);
                 rotate.CenterX = 40;
                 rotate.CenterY = 30;
@@ -57,6 +57,11 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
             }
 
             w.IsSideMenuOpen = w.IsSideMenuOpen == true ? false : true;
+        }
+
+        internal void GenerateTableAndLoadData(DateTime date, string tableName)
+        {
+
         }
     }
 }

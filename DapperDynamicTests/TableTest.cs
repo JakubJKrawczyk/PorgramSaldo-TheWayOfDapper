@@ -1,20 +1,20 @@
-using System.Drawing;
 using DapperDynamic;
-using DapperDynamic.structures;
 using DapperDynamic.queries;
+using DapperDynamic.structures;
 using NUnit.Framework;
+using System.Drawing;
 
 namespace DapperDynamicTests;
 
 public class TableTests
 {
     private DatabaseManager _db;
-    
+
     [SetUp]
     public void Setup()
     {
-        DatabaseManager.Initialize("root", "", "dapperdynamic");
-        _db = DatabaseManager.Instance!;
+        DatabaseManager.Initialize("Saldo", "Kasia!@#", "dapperdynamic");
+        _db = DatabaseManager.DBManagerInstance!;
     }
 
     [Test]

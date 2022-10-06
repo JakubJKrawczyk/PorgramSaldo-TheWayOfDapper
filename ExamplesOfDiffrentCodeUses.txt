@@ -1,0 +1,24 @@
+﻿  
+  
+  
+  
+  Example of creating and using grid from code site
+    
+            //Grid g = new Grid();
+            //RowDefinition rowDefinition = new RowDefinition();
+            //RowDefinition row = new RowDefinition()
+            //{
+            //    Name = "second Row",
+            //    Height = new System.Windows.GridLength(300.0),
+
+            //};
+            //g.ColumnDefinitions.Add(new ColumnDefinition());
+            //g.ColumnDefinitions.Add(new ColumnDefinition());
+            //g.RowDefinitions.Add(new RowDefinition());
+            //g.RowDefinitions.Add(new RowDefinition());
+
+
+            //TextBox tb = new TextBox();
+            //Grid.SetColumn(tb, 0);
+
+            //g.Children.Add(tb);

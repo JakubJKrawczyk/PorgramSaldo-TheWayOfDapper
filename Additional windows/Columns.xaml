@@ -5,8 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgramSaldo_TheWayOfDapper.Additional_windows"
         mc:Ignorable="d"
-        Title="Columns" Height="450" Width="800">
-    <Grid>
-        
+        Title="Columns" Height="450" Width="800" Closing="Window_Closed" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="DefaultBtnStyle" TargetType="Button">
+            <Setter Property="Background" Value="#87bc5e"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Background" Value="#e8e8e8"></Setter>
+            <Setter Property="Width" Value="170"></Setter>
+        </Style>
+    </Window.Resources>
+
+<Grid>
+
+    
+    
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">Nazwa Kolumny</Label>
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="2">Przynależność</Label>
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="3">Typ Danych</Label>
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="4">Opcje Listy</Label>
+        <Border BorderThickness="2" BorderBrush="#c0c0c0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4">
+        <Grid Name="ColumnsList" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4"></Grid>
+            
+        </Border>
+
+        <Button Style="{StaticResource DefaultBtnStyle}" Click="AddColumn_Btn_Click" Name="AddColumnBtn" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">Dodaj Kolumnę</Button>
+        <Button Style="{StaticResource DefaultBtnStyle}" Click="DellColumn_Btn_Click" Name="DellColumnBtn" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">Usuń Kolumnę</Button>
     </Grid>
 </Window>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ProgramSaldo_TheWayOfDapper.Controller
@@ -19,7 +20,7 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
         public LoginController()
         {
             DatabaseManager.Initialize("Saldo", "Kasia!@#", "saldo", "localhost", "3306");
-            _manager = DatabaseManager.Instance;
+            _manager = DatabaseManager.DBManagerInstance;
 
 
             // if (!_manager._isTableExists("users", _manager.DataBaseName))
@@ -27,11 +28,12 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
             //     _manager.CreateUsersTable();
             // }
 
+          
+            
+
+
         }
 
-        public bool Login(System.Windows.Controls.TextBox login, System.Windows.Controls.TextBox password )
-        {
-            return _manager.ProcessLogin(login.Text, password.Text);
-        }
+        public bool Login(System.Windows.Controls.TextBox login, System.Windows.Controls.TextBox password) => _manager.ProcessLogin(login.Text, password.Text);
     }
 }
