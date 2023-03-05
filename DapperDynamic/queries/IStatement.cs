@@ -1,5 +1,6 @@
 ﻿namespace DapperDynamic.queries;
 
+//Interfejs implementowany przez każde Query.
 enum NameType
 {
     Column, Table

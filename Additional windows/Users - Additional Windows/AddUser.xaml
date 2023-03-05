@@ -54,9 +54,9 @@
                     <ListBox Name="NotAddedGroups" Grid.Row="1" Grid.Column="0"></ListBox>
                     <ListBox Name="AddedGroups" Grid.Row="1" Grid.Column="1"></ListBox>
 
-                    <Button Click="AddPriviligeFunc" Name="AddPrivilage" Grid.Row="0" Grid.Column="0" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">Dodaj →</Button>
+                    <Button Click="AddPrivilige" Name="AddPrivilage" Grid.Row="0" Grid.Column="0" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">Dodaj →</Button>
 
-                    <Button Click="DeletePriviligeFunc" Name="DeletePrivilage" Grid.Row="0" Grid.Column="1" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">← Usuń</Button>
+                    <Button Click="DeletePrivilige" Name="DeletePrivilage" Grid.Row="0" Grid.Column="1" Height="30" Width="150" FontSize="18" Background="#87bc5e" Foreground="White" FontWeight="Bold" BorderThickness="0" Cursor="Hand">← Usuń</Button>
                     
                 </Grid>
             </TabItem>

@@ -12,7 +12,7 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
 {
     internal class AddUserController
     {
-
+        //TODO: Zaimplementować logikę kontrolera AddUserController
         public AddUserController()
         {
 

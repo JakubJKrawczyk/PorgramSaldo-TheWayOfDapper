@@ -2,6 +2,8 @@
 
 public class UpdateQuery : IStatement
 {
+
+    //TODO: Zaimplementować klasę UpdateQuery
     IDictionary<string, NameType> IStatement.GetNamesToTranslate()
     {
         throw new NotImplementedException();

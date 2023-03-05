@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 
 namespace ProgramSaldo_TheWayOfDapper.Additional_windows
 {
+
+    //TODO: Zaimplementować logikę dodawania i usuwania kolumn z tabeli.
     /// <summary>
     /// Logika interakcji dla klasy Columns.xaml
     /// </summary>

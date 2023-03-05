@@ -29,9 +29,13 @@ namespace ProgramSaldo_TheWayOfDapper
         internal static string _login;
         internal static string _password;
         internal static DateTime _date;
-
+        
         public MainWindow()
         {
+
+            //TODO: Poprawić kontrolkę wyświetlania daty i dodać logikę głównego okna.
+
+            //Adding windows into list
             _addWin["myAccount"] = new Additional_windows.MyAccount();
             _addWin["columns"] = new Additional_windows.Columns();
             _addWin["users"] = new Additional_windows.Users();
@@ -48,6 +52,10 @@ namespace ProgramSaldo_TheWayOfDapper
             this.Hide();
 
             }
+
+            //Default date setting
+            MyDatePicker_dateText.Text = _date.ToString("d");
+
             
         }
 
@@ -93,6 +101,12 @@ namespace ProgramSaldo_TheWayOfDapper
             {
                 _addWin["users"].Focus();
             }
+        }
+
+        private void OnWindowLoaded(object sender, RoutedEventArgs e)
+        {
+
+            _controller.GenerateTableAndLoadData(this, _date);
         }
     }
 }

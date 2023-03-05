@@ -2,6 +2,10 @@
 
 public class SelectQuery : IStatement
 {
+
+    //TODO: Przebudować klasę SelectQuery na prostrzą do zaimplementowania
+
+
     private WhereStatement? _where;
     private FromStatement? _from;
     private readonly Dictionary<string, Tuple<bool, string?>> _selects;

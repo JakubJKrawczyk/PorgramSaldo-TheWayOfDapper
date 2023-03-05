@@ -19,6 +19,8 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows
     /// </summary>
     public partial class MyAccount : Window
     {
+        //TODO: Zaimplementować zmiany hasła dla użytkownika.
+
         public MyAccount()
         {
             InitializeComponent();

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using DapperDynamic;
+using DapperDynamic.queries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -10,8 +14,20 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
 {
     internal class MainWindowController
     {
+
+        DatabaseManager _manager = DatabaseManager.DBManagerInstance;
+
+        Array[] _dataBehind;
+
+        
+
+        public MainWindowController()
+        {
+            
+        }
         internal void Rectangle_MouseDown(MainWindow w, object sender, MouseButtonEventArgs e)
         {
+            Button[] listOfButtons = { w.Button1, w.Button2, w.Button3 };
             if (w.IsSideMenuOpen)
             {
 
@@ -28,9 +44,12 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
 
 
                 //Hide Buttons
-                w.Button1.Visibility = System.Windows.Visibility.Hidden;
-                w.Button2.Visibility = System.Windows.Visibility.Hidden;
-                w.Button3.Visibility = System.Windows.Visibility.Hidden;
+               
+
+                foreach (Button button in listOfButtons)
+                {
+                    button.Visibility = System.Windows.Visibility.Hidden;
+                }
                 w.MenuButtons.Visibility = System.Windows.Visibility.Hidden;
                 //
             }
@@ -48,10 +67,13 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
                 //
 
 
-                //Hide Buttons
-                w.Button1.Visibility = System.Windows.Visibility.Visible;
-                w.Button2.Visibility = System.Windows.Visibility.Visible;
-                w.Button3.Visibility = System.Windows.Visibility.Visible;
+                //Show Buttons
+            
+
+                foreach (Button button in listOfButtons)
+                {
+                    button.Visibility = System.Windows.Visibility.Visible;
+                }
                 w.MenuButtons.Visibility = System.Windows.Visibility.Visible;
                 //
             }
@@ -59,9 +81,9 @@ namespace ProgramSaldo_TheWayOfDapper.Controller
             w.IsSideMenuOpen = w.IsSideMenuOpen == true ? false : true;
         }
 
-        internal void GenerateTableAndLoadData(DateTime date, string tableName)
+        internal void GenerateTableAndLoadData(Window mainWindow, DateTime date )
         {
-
+            //TODO: Zaimplementować działanie funkcji generującej tabelę danych do okna głównego ( Zadania do rozdrobniena )
         }
     }
 }

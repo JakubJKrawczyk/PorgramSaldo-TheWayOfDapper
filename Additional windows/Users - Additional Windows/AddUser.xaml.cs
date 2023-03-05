@@ -58,7 +58,11 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows.Users___Additional_Wind
         }
 
 
-
+        ///<summary>
+        ///Event zmiany jawności wyświetlania hasła. Użycie tej funkcji przełącza widoczność hasła w oknie dodawania nowego użytkownika z ***** na widok jawny
+        ///</summary>
+        ///<param name="e">Argumenty eventu</param>
+        ///<param name="sender">obiekt wywołujący event. przeważnie "this"</param>
         private void ChangePasswordVisibility(object sender, RoutedEventArgs e) 
         {
             if (_isVisible)
@@ -91,16 +95,25 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows.Users___Additional_Wind
             _isVisible = _isVisible == true ? false : true;
 
         }
-
-        private void AddPriviligeFunc(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Funkcja dodająca uprawnienia użytkownikowi podczas jego tworzenia.
+        /// </summary>
+        /// <param name="sender">Obiekt wywołujący event</param>
+        /// <param name="e">Parametry wywołania</param>
+        private void AddPrivilige(object sender, RoutedEventArgs e)
         {
 
         }
-        private void DeletePriviligeFunc(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Fukcja usuwająca uprawnienia użytkownika podczas jego tworzenia
+        /// </summary>
+        /// <param name="sender">Obiekt wywołujący event</param>
+        /// <param name="e">Parametry wywołania</param>
+        private void DeletePrivilige(object sender, RoutedEventArgs e)
         {
 
         }
-
+        //TODO: Zaimplementować obsługę controllera AddUserController
     }
       
 

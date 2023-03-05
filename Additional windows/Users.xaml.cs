@@ -48,7 +48,7 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows
 
             
         }
-
+        //TODO: Zaimplementować obsługę funkcji Del_User
         private void Del_User(object sender, RoutedEventArgs e)
         {
             

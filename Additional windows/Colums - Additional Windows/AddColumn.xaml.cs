@@ -24,4 +24,5 @@ namespace ProgramSaldo_TheWayOfDapper.Additional_windows.Colums___Additional_Win
             InitializeComponent();
         }
     }
+    //TODO: Zaprojektować okno dodawania kolumn i zaimplementować jego logikę
 }

@@ -1,5 +1,7 @@
 ﻿namespace DapperDynamic.queries;
 
+
+//TODO: Zaimplementować klasę InsertQuery tak aby możliwe było wprowadzanie danych do kolumn konkretnych tabel.
 public class InsertQuery : IStatement
 {
     internal string TableDisplayName;

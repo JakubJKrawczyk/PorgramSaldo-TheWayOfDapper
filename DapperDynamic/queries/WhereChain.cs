@@ -2,6 +2,8 @@
 
 public class WhereChain{}
 
+#error Klasa Niepotrzebna. Została zaimplementowana w WhereStatement
+
 class WhereChainSingle : WhereChain
 {
     internal string? TableName { get; set; }

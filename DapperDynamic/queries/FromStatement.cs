@@ -2,6 +2,8 @@
 
 namespace DapperDynamic.queries;
 
+//TODO: Zaimplementować klasę FromStatement i dodać możliwość używania wielu źródeł w jednym zapytaniu.
+
 public class FromStatement : IStatement
 {
     private string _tableName;
